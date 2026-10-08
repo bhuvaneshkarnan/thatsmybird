@@ -1,0 +1,3380 @@
+/* ==========================================================================
+   THAT'S MY BIRD — BAVET-INSPIRED DESIGN SYSTEM
+   Exact aesthetic, typography, architecture, and layout from bavet.eu
+   Strict Rules:
+   - No generic fonts (Teko + Barlow exact pairing)
+   - ZERO box-shadows (100% clean flat surfaces, solid borders)
+   - ZERO generic AI gradients (Solid bistro cream, signature red, deep charcoal)
+   ========================================================================== */
+
+:root {
+  /* Authentic Bavet Color Palette */
+  --bg-beige: #F4F1EA;
+  --bg-beige-light: #FBFBF8;
+  --bg-beige-dark: #E8E3D7;
+  --color-red: #C33130;
+  --color-red-dark: #A82A29;
+  --color-red-deep: #8E1F1E;
+  --color-charcoal: #1E1E1E;
+  --color-white: #FFFFFF;
+  --border-beige: #DFD9CB;
+  --border-red: #C33130;
+  
+  /* Typography Tokens */
+  --font-heading: 'Teko', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+}
+
+/* Global Reset & Strict Zero-Shadow Rule */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-shadow: none !important; /* Strict constraint: Zero box shadows across all elements */
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-beige);
+  color: var(--color-charcoal);
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-beige);
+  color: var(--color-charcoal);
+  line-height: 1.5;
+  overflow-x: clip; /* Prevents Windows 100vw scrollbar glitch */
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY HIERARCHY (Bavet Authentic Scale)
+   ========================================================================== */
+.font-heading {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.section-kicker {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: clamp(0.95rem, 1.1vw, 1.15rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-red);
+  margin-bottom: 0.35rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.35rem, 4.2vw, 3.65rem);
+  font-weight: 700;
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.display-huge {
+  font-family: var(--font-heading);
+  font-size: clamp(4.25rem, 7vw, 6.75rem);
+  font-weight: 700;
+  line-height: 0.86;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.display-large {
+  font-family: var(--font-heading);
+  font-size: clamp(2.35rem, 4.2vw, 3.65rem);
+  font-weight: 700;
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.display-medium {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 3vw, 2.75rem);
+  font-weight: 700;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.display-small {
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 2vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+/* Hollow Cinema Text Stroke (Bavet Signature) */
+.text-outline-red {
+  color: transparent !important;
+  -webkit-text-stroke: 2px var(--color-red);
+}
+
+.text-outline-white {
+  color: transparent !important;
+  -webkit-text-stroke: 2px var(--color-white);
+}
+
+.text-outline-beige {
+  color: transparent !important;
+  -webkit-text-stroke: 2px var(--bg-beige);
+}
+
+/* Core Colors */
+.text-red { color: var(--color-red); }
+.text-beige { color: var(--bg-beige); }
+.text-charcoal { color: var(--color-charcoal); }
+.text-white { color: var(--color-white); }
+.bg-red { background-color: var(--color-red); }
+.bg-beige { background-color: var(--bg-beige); }
+.bg-beige-light { background-color: var(--bg-beige-light); }
+.bg-charcoal { background-color: var(--color-charcoal); }
+
+/* Containers */
+.site-container {
+  width: 100%;
+  max-width: 1360px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.25rem, 3.5vw, 3rem);
+  padding-right: clamp(1.25rem, 3.5vw, 3rem);
+}
+
+/* ==========================================================================
+   BUTTONS (Bavet Bistro Rounded Rectangle Style - .5rem radius)
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.85rem 1.85rem;
+  border-radius: 0.5rem; /* Bavet authentic rounded-rect */
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  line-height: 0.85;
+  text-align: center;
+  user-select: none;
+}
+
+.btn-primary {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  border-color: var(--color-red);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-red-dark);
+  border-color: var(--color-red-dark);
+}
+
+.btn-white {
+  background-color: var(--color-white);
+  color: var(--color-red);
+  border-color: var(--color-white);
+}
+
+.btn-white:hover {
+  background-color: var(--bg-beige);
+  color: var(--color-red-dark);
+  border-color: var(--bg-beige);
+}
+
+.btn-outline-white {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+.btn-outline-white:hover {
+  background-color: var(--color-white);
+  color: var(--color-red);
+}
+
+.btn-sm {
+  font-size: 1.15rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: 0.4rem;
+}
+
+.btn-md {
+  font-size: 1.35rem;
+  padding: 0.85rem 2rem;
+}
+
+.btn-lg {
+  font-size: 1.65rem;
+  padding: 1.1rem 2.5rem;
+}
+
+.full-btn {
+  width: 100%;
+}
+
+/* ==========================================================================
+   TOP ANNOUNCEMENT BAR
+   ========================================================================== */
+.top-ticker-bar {
+  background-color: var(--color-red-dark);
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.28rem 1rem;
+  text-align: center;
+  position: relative;
+  z-index: 70;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.top-ticker-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.top-ticker-bar .highlight {
+  background-color: var(--color-white);
+  color: var(--color-red-dark);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  margin-right: 0.25rem;
+}
+
+.top-ticker-link {
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.top-ticker-link:hover {
+  color: var(--bg-beige);
+}
+
+/* ==========================================================================
+   HEADER & NAVIGATION (Bavet Centered 3-Column Split)
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-beige);
+  border-bottom: 2px solid var(--border-beige);
+  z-index: 60;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.site-header.scrolled {
+  background-color: rgba(244, 241, 234, 0.98);
+  border-bottom-color: var(--border-beige);
+}
+
+.site-header .site-container {
+  max-width: 100%;
+  padding-left: clamp(1.25rem, 3.5vw, 3.5rem);
+  padding-right: clamp(1.25rem, 3.5vw, 3.5rem);
+}
+
+.nav-wrapper {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0.5rem 0;
+  gap: clamp(1rem, 2vw, 2.5rem);
+}
+
+.mobile-nav-spacer {
+  display: none;
+}
+
+.nav-column {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.85rem, 1.8vw, 2.2rem);
+  white-space: nowrap;
+}
+
+.nav-left {
+  justify-content: flex-start;
+}
+
+.nav-right {
+  justify-content: flex-end;
+}
+
+.nav-link {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 1.2vw, 1.28rem);
+  font-weight: 600;
+  color: var(--color-charcoal);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  transition: color 0.2s ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--color-red);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-red);
+  transition: width 0.2s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.brand-logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  justify-self: center;
+  padding: 0.2rem 0;
+}
+
+.brand-logo-img {
+  height: clamp(72px, 5.8vw, 86px);
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.brand-logo-wrap:hover .brand-logo-img {
+  transform: scale(1.05);
+}
+
+.brand-logo-text {
+  display: none !important;
+}
+
+/* Mobile Toggle (Bavet 3-bar Rounded Box) */
+.mobile-nav-toggle {
+  display: none;
+  background: var(--color-white);
+  border: 1px solid var(--border-beige);
+  border-radius: 0.75rem;
+  width: 46px;
+  height: 46px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 5px;
+  padding: 10px;
+}
+
+.mobile-nav-toggle span {
+  display: block;
+  height: 2px;
+  background-color: var(--color-red);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-toggle span:nth-child(1) { width: 22px; }
+.mobile-nav-toggle span:nth-child(2) { width: 22px; }
+.mobile-nav-toggle span:nth-child(3) { width: 14px; }
+
+/* Mobile Menu Drawer */
+.mobile-menu-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 380px;
+  height: 100vh;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  z-index: 100;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  border-left: 3px solid var(--color-white);
+  overflow-y: auto;
+}
+
+.mobile-menu-drawer.open {
+  right: 0;
+}
+
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-close-btn {
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+  font-family: var(--font-heading);
+}
+
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.mobile-links a {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-white);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.4rem;
+}
+
+/* ==========================================================================
+   1. HERO SECTION (Bavet Tilted Kinetic Marquee + Centerpiece Pill)
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-beige);
+  min-height: calc(100vh - 84px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 2px solid var(--border-beige);
+}
+
+/* Bavet 3-Tier Angled Kinetic Cinema Backdrop */
+.hero-cinema-backdrop {
+  position: absolute;
+  inset: -20% -20% -20% -20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  user-select: none;
+}
+
+.cinema-titles-tilted {
+  transform: rotate(-7deg);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 140vw;
+  opacity: 0.22;
+}
+
+.cinema-ticker-track {
+  display: flex;
+  white-space: nowrap;
+  gap: 2rem;
+  will-change: transform;
+}
+
+.ticker-left {
+  animation: marquee-left 34s linear infinite;
+}
+
+.ticker-right {
+  animation: marquee-right 34s linear infinite;
+}
+
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.cinema-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  font-family: var(--font-heading);
+  font-size: clamp(4.5rem, 8vw, 8rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.86;
+}
+
+.cinema-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--color-red);
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+
+.hero-foreground {
+  position: relative;
+  z-index: 10;
+  padding: clamp(0.5rem, 1.4vh, 1.25rem) 0;
+  width: 100%;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(1.5rem, 2.5vw, 2.75rem);
+  align-items: start;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.35rem, 0.8vh, 0.55rem);
+}
+
+.hero-offer-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  padding: 0.2rem 0.75rem;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: fit-content;
+  border: 1px solid var(--color-red);
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(4.25rem, 7vw, 6.75rem);
+  font-weight: 700;
+  line-height: 0.86;
+  color: var(--color-red);
+  margin-top: 0.15rem;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 1.1vw, 1.15rem);
+  font-weight: 500;
+  color: var(--color-charcoal);
+  line-height: 1.35;
+  max-width: 540px;
+}
+
+.hero-subtitle strong {
+  color: var(--color-red);
+}
+
+.hero-trust-pills {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.25rem 0 0.5rem 0;
+}
+
+.hero-trust-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  background-color: var(--bg-beige-light);
+  border: 1.5px solid var(--border-beige);
+  padding: 0.18rem 0.6rem;
+  border-radius: 9999px;
+  line-height: 1;
+}
+
+.hero-trust-pill svg {
+  color: var(--color-red);
+}
+
+/* High Converting Solid Bistro Lead Box */
+.lead-capture-card {
+  background-color: var(--bg-beige-light);
+  border: 2px solid var(--border-beige);
+  border-radius: 0.9rem;
+  padding: 0.85rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 520px;
+}
+
+.lead-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: -0.15rem;
+}
+
+.lead-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-red);
+  text-transform: uppercase;
+}
+
+.lead-card-tag {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: #6E6B64;
+  text-transform: uppercase;
+}
+
+.lead-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  align-items: end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.form-submit-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.form-label {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+}
+
+.form-submit-label {
+  visibility: hidden;
+  user-select: none;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.42rem 0.75rem;
+  background-color: var(--color-white);
+  border: 1.5px solid var(--border-beige);
+  border-radius: 0.4rem; /* Bistro flat edge */
+  font-size: 0.92rem;
+  color: var(--color-charcoal);
+  height: 38px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  border-color: var(--color-red);
+}
+
+.form-input::placeholder {
+  color: #A09E96;
+}
+
+.hero-submit-btn {
+  font-size: 1.25rem !important;
+  padding: 0.42rem 1rem !important;
+  border-radius: 0.4rem !important;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.lead-capture-card .btn-lg {
+  font-size: 1.25rem;
+  padding: 0.42rem 1rem;
+  border-radius: 0.4rem;
+}
+
+.form-fineprint {
+  font-size: 0.75rem;
+  color: #6E6B64;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: -0.1rem;
+}
+
+.waitlist-live-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--color-red);
+  padding: 0.28rem 0.65rem;
+  background-color: rgba(195, 49, 48, 0.06);
+  border-radius: 0.35rem;
+  border-left: 3px solid var(--color-red);
+}
+
+.waitlist-live-badge .pulse {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #2E7D32;
+  border-radius: 50%;
+  animation: pulse-dot 1.2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* Hero Centerpiece Visual */
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: start;
+  margin-top: -0.25rem;
+  width: 100%;
+}
+
+.hero-pill-frame {
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1.38 / 1;
+  border-radius: 120px; /* Bavet central pill shape */
+  border: 3.5px solid var(--color-red);
+  overflow: hidden;
+  position: relative;
+  background-color: var(--bg-beige-light);
+  padding: 0.4rem 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-pill-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-pill-frame:hover .hero-pill-img {
+  transform: scale(1.03);
+}
+
+/* Floating Retro Badges & Stamps */
+.hero-sticker-badge {
+  position: absolute;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 2px solid var(--color-white);
+  z-index: 20;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.badge-top-left {
+  top: -10px;
+  left: 4%;
+  transform: rotate(-7deg);
+}
+
+.badge-bottom-right {
+  bottom: -6px;
+  left: 8%;
+  background-color: var(--color-charcoal);
+  color: var(--bg-beige);
+  transform: rotate(-5deg);
+}
+
+.rotating-stamp {
+  position: absolute;
+  top: -16px;
+  right: -10px;
+  width: 104px;
+  height: 104px;
+  z-index: 25;
+}
+
+.rotating-stamp svg {
+  width: 100%;
+  height: 100%;
+  animation: spin-clockwise 20s linear infinite;
+}
+
+@keyframes spin-clockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Helper Badge & Icon Styles */
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.icon-inline {
+  display: inline-block;
+  vertical-align: -2px;
+  flex-shrink: 0;
+}
+
+.heat-bars {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  vertical-align: middle;
+}
+
+.heat-bars .bar {
+  display: inline-block;
+  width: 4px;
+  height: 12px;
+  background-color: var(--border-beige);
+  border-radius: 2px;
+}
+
+.heat-bars .bar.full {
+  background-color: var(--color-red);
+}
+
+.vs-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.vs-list li svg {
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.icon-cross, .icon-check {
+  flex-shrink: 0;
+}
+
+.partner-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.partner-dot.bg-swiggy {
+  background-color: #FC8019;
+}
+
+.partner-dot.bg-zomato {
+  background-color: #E23744;
+}
+
+/* ==========================================================================
+   TRUST ASSURANCE STRIP (High-Density Linear Stat Ribbon — No Boxes)
+   ========================================================================== */
+.trust-bar-section {
+  background-color: var(--color-white);
+  border-bottom: 2px solid var(--border-beige);
+  padding: clamp(1rem, 1.8vw, 1.6rem) 0;
+}
+
+.trust-stat-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: clamp(0.75rem, 1.5vw, 1.75rem);
+}
+
+.stat-unit {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  flex: 1;
+}
+
+.stat-top-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.stat-big-num {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 3.2vw, 3.4rem);
+  font-weight: 700;
+  line-height: 0.85;
+  color: var(--color-red);
+  letter-spacing: 0.01em;
+}
+
+.stat-pill-tag {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  background-color: var(--bg-beige);
+  padding: 0.1rem 0.45rem;
+  border-radius: 9999px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.stat-pill-tag.tag-green {
+  background-color: rgba(46, 125, 50, 0.12);
+  color: #2E7D32;
+}
+
+.stat-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 1.25vw, 1.35rem);
+  font-weight: 700;
+  color: var(--color-charcoal);
+  text-transform: uppercase;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+}
+
+.stat-sub {
+  font-size: 0.82rem;
+  color: #6E6B64;
+  line-height: 1.25;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 48px;
+  background-color: var(--border-beige);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   2. THE PROBLEM (Full-Bleed Deep Charcoal Editorial Manifesto)
+   ========================================================================== */
+.problem-section {
+  padding: clamp(2.5rem, 4vw, 3.75rem) 0;
+  background-color: var(--color-charcoal);
+  color: var(--color-white);
+  border-bottom: 2px solid var(--color-red);
+  position: relative;
+  overflow: hidden;
+}
+
+.problem-manifesto-header {
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto clamp(2rem, 3vw, 2.75rem) auto;
+}
+
+.problem-quote {
+  line-height: 0.92;
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.quote-highlight {
+  color: var(--color-red);
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.problem-answer-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  padding: 0.45rem 1.25rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+
+.problem-answer-text {
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 2vw, 1.85rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--bg-beige);
+  line-height: 1;
+}
+
+.answer-stamp-pill {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: clamp(1.45rem, 2.2vw, 2.1rem);
+  font-weight: 700;
+  padding: 0.15rem 0.85rem;
+  border-radius: 9999px;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+}
+
+.problem-subtitle-tag {
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 1.3vw, 1.35rem);
+  color: #A09E96;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+}
+
+/* Linear Editorial Strip (High Contrast Horizontal Rows) */
+.problem-editorial-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.25rem, 2.5vw, 2.25rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: clamp(1.5rem, 2.5vw, 2.25rem);
+}
+
+.editorial-line-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.editorial-num {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 3.8vw, 4rem);
+  font-weight: 700;
+  color: var(--color-red);
+  line-height: 0.82;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.editorial-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.editorial-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.45rem, 1.8vw, 1.85rem);
+  font-weight: 700;
+  color: var(--color-white);
+  text-transform: uppercase;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+}
+
+.editorial-desc {
+  font-size: 0.92rem;
+  color: #C5C2B8;
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   3. OUR ANSWER: SAME-DAY FRESHNESS (Bavet 4-Step Freshness Grid)
+   ========================================================================== */
+/* ==========================================================================
+   3. OUR ANSWER: SAME-DAY FRESHNESS (Bavet 4-Step Freshness Grid)
+   ========================================================================== */
+.freshness-section {
+  padding: clamp(1.75rem, 2.5vw, 2.25rem) 0;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.freshness-intro {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 1.35rem auto;
+}
+
+.freshness-cycle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+  margin-bottom: 1.35rem;
+}
+
+.freshness-step-card {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 0.8rem;
+  padding: 1rem 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.freshness-step-card:hover {
+  background-color: rgba(255, 255, 255, 0.16);
+  border-color: var(--color-white);
+}
+
+.step-time-badge {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--bg-beige);
+  letter-spacing: 0.04em;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  width: fit-content;
+}
+
+.step-action-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 2.8vw, 2.45rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.9;
+  color: var(--color-white);
+}
+
+.step-detail-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.4;
+}
+
+.freshness-manifesto-bar {
+  background-color: var(--color-white);
+  color: var(--color-red);
+  border-radius: 0.85rem;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.manifesto-text-wrap {
+  flex: 1;
+  min-width: 280px;
+}
+
+/* ==========================================================================
+   4. THE MENU (Bavet Plates Showcase & Interactive Customizer)
+   ========================================================================== */
+.menu-section {
+  padding: clamp(1.75rem, 2.5vw, 2.25rem) 0;
+  background-color: var(--bg-beige);
+  border-bottom: 2px solid var(--border-beige);
+}
+
+.menu-header-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.menu-filter-nav {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 0.25rem;
+}
+
+.menu-filter-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-tab {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.45rem 1.15rem;
+  border-radius: 9999px;
+  border: 1.5px solid var(--border-beige);
+  background-color: var(--bg-beige-light);
+  color: var(--color-charcoal);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.filter-tab.active, .filter-tab:hover {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  border-color: var(--color-red);
+}
+
+.menu-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.menu-item-card {
+  background-color: var(--bg-beige-light);
+  border: 2px solid var(--border-beige);
+  border-radius: 1.15rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.menu-item-card:hover {
+  border-color: var(--color-red);
+}
+
+.card-img-wrap {
+  width: 100%;
+  height: 200px;
+  background-color: #ECE7DC;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem;
+}
+
+.card-plate-img {
+  max-width: 100%;
+  max-height: 175px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.menu-item-card:hover .card-plate-img {
+  transform: scale(1.08);
+}
+
+.card-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-white);
+  z-index: 5;
+}
+
+.card-body {
+  padding: 1.15rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.card-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.card-item-title {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 700;
+  line-height: 0.95;
+  color: var(--color-charcoal);
+  text-transform: uppercase;
+}
+
+.card-price {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--color-red);
+  white-space: nowrap;
+}
+
+.card-item-desc {
+  font-size: 0.9rem;
+  color: #55524B;
+  line-height: 1.35;
+}
+
+.card-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-beige);
+}
+
+.card-subtitle-tag {
+  color: #6E6B64;
+  font-size: 1.15rem;
+}
+
+.spice-meter {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-red);
+  text-transform: uppercase;
+}
+
+/* Spice Customizer Component */
+.spice-toggle-box {
+  background-color: var(--bg-beige-light);
+  border: 2px solid var(--border-beige);
+  border-radius: 1.25rem;
+  padding: 2.25rem;
+  margin-top: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.spice-info-wrap {
+  flex: 1;
+  min-width: 280px;
+}
+
+.spice-desc-text {
+  font-size: 1.1rem;
+  color: #4A4843;
+  margin-top: 0.35rem;
+  line-height: 1.4;
+}
+
+.spice-options {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.spice-btn {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.65rem 1.6rem;
+  border-radius: 9999px;
+  border: 2px solid var(--border-beige);
+  background-color: var(--color-white);
+  color: var(--color-charcoal);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.spice-btn.active {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  border-color: var(--color-red);
+}
+
+/* ==========================================================================
+   5. WHY CHOOSE US (Bavet 6-Card Grid with Red Hover Transition)
+   ========================================================================== */
+.why-us-section {
+  padding: clamp(1.75rem, 2.5vw, 2.25rem) 0;
+  background-color: var(--bg-beige);
+  border-bottom: 2px solid var(--border-beige);
+}
+
+.section-title-center {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-subtext {
+  font-size: 1.15rem;
+  color: var(--color-charcoal);
+  margin-top: 0.25rem;
+}
+
+/* The High-Impact Head-to-Head Arena */
+.battle-arena {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: clamp(1rem, 2vw, 2.25rem);
+  align-items: stretch;
+  margin-top: clamp(1.5rem, 2.5vw, 2.5rem);
+  position: relative;
+}
+
+.battle-column {
+  border-radius: 1.25rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Them: The Old Fast Food Monopolies */
+.battle-them {
+  background-color: #232220;
+  border: 2px solid #3E3B36;
+  color: #C5C2B8;
+}
+
+.battle-them .battle-header {
+  background-color: #1A1918;
+  padding: clamp(1.25rem, 2vw, 1.85rem);
+  border-bottom: 2px solid #3E3B36;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.battle-them .battle-status-badge {
+  background-color: rgba(220, 53, 69, 0.15);
+  color: #FF6B6B;
+  border: 1px solid rgba(220, 53, 69, 0.35);
+}
+
+.battle-them .battle-brand-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 2.6vw, 2.5rem);
+  font-weight: 700;
+  color: #E2DFD6;
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.battle-them .battle-tagline {
+  font-size: 0.92rem;
+  color: #8C887E;
+}
+
+.battle-them .battle-rows {
+  padding: clamp(1rem, 1.8vw, 1.6rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  flex: 1;
+}
+
+.battle-them .battle-row {
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+}
+
+.battle-them .battle-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.battle-them .battle-criterion {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #E66A6A;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.2rem;
+}
+
+.battle-them .battle-desc {
+  font-size: 0.92rem;
+  color: #A6A398;
+  line-height: 1.4;
+}
+
+.battle-them .battle-desc strong {
+  color: #EAE7DC;
+}
+
+/* Center VS Circle Divider */
+.battle-vs-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vs-circle {
+  width: 58px;
+  height: 58px;
+  background-color: var(--color-charcoal);
+  color: var(--color-white);
+  border: 3.5px solid var(--color-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  z-index: 10;
+}
+
+/* Us: That's My Bird */
+.battle-us {
+  background-color: var(--color-red);
+  border: 3px solid var(--color-red-dark);
+  color: var(--color-white);
+}
+
+.battle-us .battle-header {
+  background-color: var(--color-red-dark);
+  padding: clamp(1.25rem, 2vw, 1.85rem);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.battle-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.battle-us .battle-status-badge {
+  background-color: var(--color-white);
+  color: var(--color-red);
+  border: 1px solid var(--color-white);
+}
+
+.battle-us .battle-brand-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 2.6vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.battle-us .battle-tagline {
+  font-size: 0.92rem;
+  color: var(--bg-beige);
+}
+
+.battle-us .battle-rows {
+  padding: clamp(1rem, 1.8vw, 1.6rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  flex: 1;
+}
+
+.battle-us .battle-row {
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.22);
+  padding-bottom: 1rem;
+}
+
+.battle-us .battle-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.battle-us .battle-criterion {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #FFE699;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.2rem;
+}
+
+.battle-us .battle-desc {
+  font-size: 0.94rem;
+  color: #FFF2E8;
+  line-height: 1.4;
+}
+
+.battle-us .battle-desc strong {
+  color: var(--color-white);
+}
+
+/* Decisive Verdict Callout Bar */
+.battle-verdict-bar {
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  background-color: var(--color-charcoal);
+  border: 2px solid var(--color-red);
+  border-radius: 1rem;
+  padding: clamp(1rem, 2vw, 1.5rem) clamp(1.25rem, 2.5vw, 2.25rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.verdict-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.verdict-label {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-red);
+  letter-spacing: 0.08em;
+}
+
+.verdict-question {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2.2vw, 2.15rem);
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   6. THE PANAG STORY (Bavet Inverted Red Block Section)
+   ========================================================================== */
+.panag-story-section {
+  padding: clamp(1.75rem, 2.5vw, 2.25rem) 0;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 2px solid var(--border-beige);
+}
+
+.panag-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: center;
+}
+
+.panag-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.panag-badge-strip {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--color-white);
+  color: var(--color-red);
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: fit-content;
+}
+
+.panag-body-p {
+  font-size: 1.15rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.panag-ingredients-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0.5rem 0;
+}
+
+.ingredient-pill {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid var(--color-white);
+  padding: 0.45rem 1.15rem;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.panag-footer-tagline {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--bg-beige);
+}
+
+.panag-comparison-card {
+  background-color: var(--bg-beige);
+  color: var(--color-charcoal);
+  border-radius: 1.75rem;
+  border: 3px solid var(--color-white);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.comparison-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.col-vs-box {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.col-cola {
+  background-color: #EFE8DA;
+  border: 2px dashed #C0B7A4;
+}
+
+.col-panag {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-red);
+}
+
+.vs-title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.vs-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.vs-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ==========================================================================
+   7. HOW EARLY ACCESS WORKS (Connected Horizontal Progression — No Boxes)
+   ========================================================================== */
+.early-access-section {
+  padding: clamp(2rem, 3.5vw, 3rem) 0;
+  background-color: var(--bg-beige);
+  border-bottom: 2px solid var(--border-beige);
+}
+
+.steps-progression-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
+  margin-top: clamp(1.5rem, 2.8vw, 2.5rem);
+  position: relative;
+}
+
+.timeline-step-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.step-marker-wrap {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.step-num-circle {
+  width: 52px;
+  height: 52px;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 700;
+  line-height: 1;
+  border: 3px solid var(--color-red);
+  flex-shrink: 0;
+  z-index: 5;
+}
+
+.step-progress-line {
+  position: absolute;
+  left: 52px;
+  right: 0;
+  height: 0;
+  border-top: 3px dashed var(--color-red);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.step-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.step-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 1.8vw, 1.75rem);
+  font-weight: 700;
+  color: var(--color-charcoal);
+  text-transform: uppercase;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+}
+
+.step-summary {
+  font-size: 0.94rem;
+  color: #4A4843;
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   8. FOUNDER NOTE (Editorial Manifesto Layout — Signature European Bistro Styling)
+   ========================================================================== */
+.founder-section {
+  padding: clamp(2.5rem, 4vw, 4rem) 0;
+  background-color: var(--bg-beige-light);
+  border-bottom: 2px solid var(--border-beige);
+  position: relative;
+}
+
+.founder-editorial-manifesto {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+}
+
+.founder-quote-column {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.editorial-quote-mark {
+  font-family: var(--font-heading);
+  font-size: clamp(6rem, 10vw, 10rem);
+  color: rgba(195, 49, 48, 0.15);
+  line-height: 0.6;
+  margin-bottom: -0.2rem;
+  user-select: none;
+  pointer-events: none;
+}
+
+.founder-quote-statement {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.02;
+  color: var(--color-charcoal);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin: 0.75rem 0 1.5rem 0;
+  border-left: 4px solid var(--color-red);
+  padding-left: clamp(1rem, 2vw, 1.75rem);
+}
+
+.quote-red {
+  color: var(--color-red);
+  font-weight: 700;
+}
+
+.founder-signoff-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.founder-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.founder-sign-name {
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--color-red);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.founder-sign-role {
+  font-size: 0.92rem;
+  color: #6E6B64;
+  font-weight: 600;
+}
+
+.waitlist-editorial-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background-color: var(--color-white);
+  border: 1.5px solid var(--border-beige);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.88rem;
+  color: var(--color-charcoal);
+}
+
+.pulse-green-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #2E7D32;
+  display: inline-block;
+  animation: pulse-dot 1.2s infinite;
+}
+
+/* Mascot Column */
+.founder-mascot-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mascot-bistro-badge {
+  background-color: var(--color-red);
+  border: 3.5px solid var(--color-charcoal);
+  border-radius: 1.5rem;
+  padding: 1.25rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 260px;
+  width: 100%;
+}
+
+.mascot-badge-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  background-color: var(--color-white);
+}
+
+.mascot-stamp-banner {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   9. REFER & UNLOCK (Bavet Viral Mechanism)
+   ========================================================================== */
+.refer-section {
+  padding: clamp(1.75rem, 2.5vw, 2.25rem) 0;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  text-align: center;
+  border-bottom: 2px solid var(--border-beige);
+}
+
+.refer-box {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.refer-highlight-p {
+  font-size: 1.25rem;
+  color: var(--bg-beige);
+  margin-top: 0.35rem;
+  line-height: 1.4;
+}
+
+.referral-link-container {
+  display: flex;
+  max-width: 560px;
+  margin: 1.5rem auto 1.25rem auto;
+  gap: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.12);
+  padding: 0.4rem;
+  border-radius: 9999px;
+  border: 2px solid var(--color-white);
+}
+
+.referral-url-text {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.refer-action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   10. CHECK DELIVERY (Bavet City Marquee + Pincode Checker)
+   ========================================================================== */
+.delivery-section {
+  padding: 0 0 clamp(1.75rem, 2.5vw, 2.25rem) 0;
+  background-color: var(--bg-beige);
+  border-bottom: 2px solid var(--border-beige);
+  overflow: hidden;
+}
+
+/* Continuous Chennai Neighborhood Marquee Ribbon */
+.city-marquee-bar {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  padding: 0.4rem 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.city-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  white-space: nowrap;
+  animation: marquee-left 40s linear infinite;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.city-sep {
+  display: inline-block;
+  width: 10px;
+  height: 2px;
+  background-color: var(--color-white);
+}
+
+.delivery-box {
+  max-width: 820px;
+  margin: 0 auto;
+  background-color: var(--bg-beige-light);
+  border: 2.5px solid var(--color-red);
+  border-radius: 1.25rem;
+  padding: clamp(1.35rem, 2.5vw, 2rem) 1.5rem;
+  text-align: center;
+}
+
+.pincode-input-group {
+  display: flex;
+  max-width: 500px;
+  margin: 1.25rem auto 1rem auto;
+  gap: 0.65rem;
+}
+
+.pincode-input {
+  flex: 1;
+  padding: 0.6rem 1.25rem;
+  background-color: var(--color-white);
+  border: 2px solid var(--border-beige);
+  border-radius: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  letter-spacing: 0.1em;
+  color: var(--color-charcoal);
+  outline: none;
+}
+
+.pincode-input:focus {
+  border-color: var(--color-red);
+}
+
+.delivery-result-msg {
+  min-height: 48px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  color: #6E6B64;
+}
+
+.delivery-result-msg.success {
+  color: #1E7E34;
+}
+
+.delivery-result-msg.pending {
+  color: #B26A00;
+}
+
+/* ==========================================================================
+   11. FAQ ACCORDION (Solid Bistro Accordion)
+   ========================================================================== */
+.faq-section {
+  padding: clamp(1.75rem, 2.5vw, 2.25rem) 0;
+  background-color: var(--bg-beige);
+  border-bottom: 2px solid var(--border-beige);
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 1.75rem auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.faq-item {
+  background-color: var(--bg-beige-light);
+  border: 2px solid var(--border-beige);
+  border-radius: 0.9rem;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.faq-item.active {
+  border-color: var(--color-red);
+}
+
+.faq-question-btn {
+  width: 100%;
+  padding: 1.1rem 1.5rem;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  line-height: 1.05;
+}
+
+.faq-item.active .faq-question-btn {
+  color: var(--color-red);
+}
+
+.faq-icon {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  color: var(--color-red);
+  transition: transform 0.25s ease;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer-pane {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 1.5rem;
+}
+
+.faq-item.active .faq-answer-pane {
+  max-height: 300px;
+  padding: 0 1.5rem 1.25rem 1.5rem;
+}
+
+.faq-answer-content {
+  font-size: 0.98rem;
+  color: #4A4843;
+  line-height: 1.5;
+  border-top: 1px solid var(--border-beige);
+  padding-top: 0.85rem;
+}
+
+/* ==========================================================================
+   12. DELIVERY SERVICE PARTNERS (Bavet Takeout & Lazy-Friendly Badges)
+   ========================================================================== */
+.delivery-partners-section {
+  padding: clamp(1.5rem, 2.2vw, 2rem) 0;
+  background-color: var(--bg-beige-light);
+  border-bottom: 2px solid var(--border-beige);
+  text-align: center;
+}
+
+.takeout-showcase-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.takeout-circle-box {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3.5px solid var(--color-red);
+  background-color: var(--bg-beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.takeout-img {
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+}
+
+.circle-text-spin-badge {
+  position: absolute;
+  inset: -22px;
+  animation: spin-clockwise 22s linear infinite;
+  pointer-events: none;
+}
+
+.circle-text-spin-badge svg {
+  width: 100%;
+  height: 100%;
+}
+
+.partners-header-wrap {
+  margin-bottom: 1.25rem;
+}
+
+.partner-pills-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.partner-pill {
+  background-color: var(--color-white);
+  border: 2px solid var(--border-beige);
+  border-radius: 9999px;
+  padding: 0.65rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-width: 150px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  cursor: default;
+}
+
+.partner-pill:hover {
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+
+/* ==========================================================================
+   13. FOOTER (Bavet Full Width Red Footer)
+   ========================================================================== */
+.site-footer {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  padding: clamp(1.75rem, 2.8vw, 2.25rem) 0 1rem 0;
+  border-top: 3px solid var(--color-charcoal);
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.footer-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.footer-brand-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.footer-logo-row span {
+  display: none !important;
+}
+
+.footer-logo-img {
+  height: clamp(80px, 6.5vw, 105px);
+  width: auto;
+  max-width: 240px;
+  object-fit: contain;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.footer-brand-link:hover .footer-logo-img,
+.footer-logo-img:hover {
+  transform: scale(1.04);
+  opacity: 0.95;
+}
+
+.footer-tagline {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+
+.footer-manifesto-text {
+  font-size: 1.1rem;
+  opacity: 0.88;
+  max-width: 360px;
+  line-height: 1.45;
+}
+
+.footer-col-title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  color: var(--bg-beige);
+}
+
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-nav-list a {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.2s ease;
+}
+
+.footer-nav-list a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+.social-pills-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.social-pill {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid var(--color-white);
+  padding: 0.5rem 1.2rem;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-white);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.social-pill:hover {
+  background-color: var(--color-white);
+  color: var(--color-red);
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.footer-badges-row {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+/* ==========================================================================
+   STICKY MOBILE CTA BAR (Bavet Mobile Conversion Engine)
+   ========================================================================== */
+.sticky-mobile-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-beige-light);
+  border-top: 2px solid var(--color-red);
+  padding: 0.75rem 1.25rem;
+  z-index: 55;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.mobile-bar-offer {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-bar-offer span.flock {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-red);
+  line-height: 1;
+}
+
+.mobile-bar-offer span.deal {
+  font-size: 0.85rem;
+  color: var(--color-charcoal);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   MODAL DIALOG (High Converting Early Flock VIP Pass)
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(30, 30, 30, 0.85);
+  backdrop-filter: blur(4px);
+  z-index: 120;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-box {
+  background-color: var(--bg-beige);
+  border: 3px solid var(--color-red);
+  border-radius: 1.75rem;
+  width: 100%;
+  max-width: 520px;
+  padding: 2.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  font-family: var(--font-heading);
+  color: var(--color-red);
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* Toast Message */
+.toast-notice {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: var(--color-charcoal);
+  color: var(--color-white);
+  border: 2px solid var(--color-red);
+  padding: 1rem 1.75rem;
+  border-radius: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.toast-notice.show {
+  display: flex;
+  animation: slide-up-toast 0.3s ease;
+}
+
+@keyframes slide-up-toast {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1080px) {
+  .nav-column {
+    gap: 0.75rem;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .nav-column {
+    display: none;
+  }
+
+  .mobile-nav-toggle {
+    display: flex;
+    justify-self: end;
+  }
+
+  .mobile-nav-spacer {
+    display: block;
+    width: 46px;
+    height: 46px;
+    visibility: hidden;
+  }
+
+  .nav-wrapper {
+    display: grid;
+    grid-template-columns: 46px 1fr 46px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .brand-logo-wrap {
+    justify-self: center;
+    text-align: center;
+  }
+
+  .hero-section {
+    min-height: auto;
+    padding: 1rem 0 1.5rem 0;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.25rem;
+  }
+
+  .hero-content {
+    align-items: center;
+  }
+
+  .hero-visual {
+    margin: 0.5rem auto;
+    max-width: 320px;
+  }
+
+  .lead-capture-card {
+    max-width: 100%;
+  }
+
+  .trust-stat-ribbon {
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    justify-content: center;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+
+  .problem-editorial-strip {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .battle-arena {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .battle-vs-divider {
+    margin: -0.75rem 0;
+  }
+
+  .steps-progression-timeline {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .step-progress-line {
+    display: none;
+  }
+
+  .freshness-cycle-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .menu-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .panag-split-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .founder-editorial-manifesto {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.75rem;
+  }
+
+  .founder-quote-statement {
+    border-left: none;
+    border-top: 3px solid var(--color-red);
+    padding-left: 0;
+    padding-top: 0.75rem;
+  }
+
+  .mascot-bistro-badge {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 56px;
+  }
+
+  .top-ticker-bar {
+    padding: 0.22rem 0.5rem;
+    font-size: 0.82rem;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .top-ticker-content {
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+
+  .ticker-extra {
+    display: none;
+  }
+
+  .site-header {
+    padding: 0.2rem 0;
+  }
+
+  .brand-logo-img {
+    height: clamp(58px, 14vw, 70px);
+    max-width: 175px;
+  }
+
+  /* Headings: Commanding, Bold, Consistent on Mobile */
+  .hero-title {
+    font-size: clamp(3.5rem, 11vw, 4.65rem);
+    line-height: 0.88;
+    margin-top: 0.1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 7.5vw, 2.65rem);
+    line-height: 0.94;
+  }
+
+  .section-kicker {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+  }
+
+  /* Compact Hero Flow on Mobile */
+  .hero-section {
+    padding: 0.75rem 0 1.25rem 0;
+  }
+
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .hero-visual {
+    order: 2;
+    margin: 0.25rem auto;
+  }
+
+  .lead-capture-card {
+    order: 3;
+    width: 100%;
+    padding: 0.85rem 0.95rem;
+    gap: 0.35rem;
+  }
+
+  .lead-form-grid {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .form-submit-label {
+    display: none;
+  }
+
+  .hero-submit-btn {
+    height: 42px;
+    width: 100%;
+    font-size: 1.25rem;
+  }
+
+  .hero-pill-frame {
+    max-width: 250px;
+    aspect-ratio: 1.35 / 1;
+    border-radius: 70px;
+  }
+
+  .rotating-stamp {
+    width: 72px;
+    height: 72px;
+    top: -10px;
+    right: -6px;
+  }
+
+  .hero-sticker-badge {
+    font-size: 0.82rem;
+    padding: 0.2rem 0.55rem;
+  }
+
+  /* Section Padding: Drastically Less Scrollable */
+  .problem-section, .freshness-section, .menu-section, .why-us-section,
+  .panag-story-section, .early-access-section, .founder-section,
+  .refer-section, .faq-section, .delivery-partners-section {
+    padding: 1.25rem 0;
+  }
+
+  .trust-bar-section {
+    padding: 0.85rem 0;
+  }
+
+  /* Trust Stat Ribbon on Mobile */
+  .trust-stat-ribbon {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 0.6rem;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+
+  .trust-stat-ribbon .stat-unit:last-child {
+    grid-column: span 2;
+    text-align: center;
+    align-items: center;
+  }
+
+  .stat-big-num {
+    font-size: 2rem;
+  }
+
+  .stat-title {
+    font-size: 1.05rem;
+  }
+
+  /* The Problem on Mobile */
+  .problem-section {
+    padding: 2rem 0;
+  }
+
+  .problem-manifesto-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .problem-quote {
+    font-size: 1.85rem;
+    line-height: 0.95;
+    margin-bottom: 0.75rem;
+  }
+
+  .problem-answer-banner {
+    padding: 0.35rem 0.85rem;
+    gap: 0.5rem;
+  }
+
+  .problem-answer-text {
+    font-size: 1.2rem;
+  }
+
+  .answer-stamp-pill {
+    font-size: 1.35rem;
+    padding: 0.1rem 0.6rem;
+  }
+
+  .problem-subtitle-tag {
+    font-size: 0.95rem;
+  }
+
+  .problem-editorial-strip {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+    padding-top: 1.25rem;
+  }
+
+  .editorial-num {
+    font-size: 2.5rem;
+  }
+
+  .editorial-title {
+    font-size: 1.35rem;
+  }
+
+  .editorial-desc {
+    font-size: 0.88rem;
+    line-height: 1.35;
+  }
+
+  /* Freshness 2x2 Grid */
+  .freshness-cycle-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .freshness-step-card {
+    padding: 0.75rem 0.65rem;
+    gap: 0.3rem;
+  }
+
+  .step-action-title {
+    font-size: 1.45rem;
+  }
+
+  .step-detail-desc {
+    font-size: 0.82rem;
+    line-height: 1.25;
+  }
+
+  /* Menu: Space-Efficient Horizontal Cards */
+  .menu-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .menu-item-card {
+    flex-direction: row;
+    align-items: center;
+    border-radius: 0.85rem;
+    overflow: hidden;
+  }
+
+  .card-img-wrap {
+    width: 105px;
+    min-width: 105px;
+    height: 105px;
+    flex-shrink: 0;
+    padding: 0.4rem;
+  }
+
+  .card-plate-img {
+    max-height: 90px;
+  }
+
+  .card-badge {
+    font-size: 0.65rem;
+    padding: 0.1rem 0.35rem;
+    top: 4px;
+    left: 4px;
+  }
+
+  .card-body {
+    padding: 0.5rem 0.75rem;
+    gap: 0.25rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .card-item-title {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  .card-price {
+    font-size: 1.25rem;
+  }
+
+  .card-item-desc {
+    font-size: 0.8rem;
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-meta-row {
+    padding-top: 0.2rem;
+    font-size: 0.8rem;
+  }
+
+  .spice-toggle-box {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  .spice-options {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .spice-btn {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  /* Head-to-Head Battle Arena on Mobile */
+  .battle-arena {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.25rem;
+  }
+
+  .battle-them .battle-header,
+  .battle-us .battle-header {
+    padding: 1rem 0.85rem;
+  }
+
+  .battle-brand-title {
+    font-size: 1.6rem;
+  }
+
+  .battle-them .battle-rows,
+  .battle-us .battle-rows {
+    padding: 0.85rem;
+    gap: 0.85rem;
+  }
+
+  .battle-criterion {
+    font-size: 1rem;
+  }
+
+  .battle-desc {
+    font-size: 0.86rem;
+  }
+
+  .battle-vs-divider {
+    margin: -0.5rem 0;
+  }
+
+  .vs-circle {
+    width: 44px;
+    height: 44px;
+    font-size: 1.35rem;
+  }
+
+  .battle-verdict-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.85rem;
+    padding: 1rem 0.85rem;
+    margin-top: 1.25rem;
+  }
+
+  .verdict-question {
+    font-size: 1.35rem;
+  }
+
+  .battle-verdict-bar .btn {
+    width: 100%;
+  }
+
+  /* Panag Story Side-by-Side Comparison */
+  .panag-split-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .panag-comparison-card {
+    padding: 0.85rem 0.75rem;
+    border-radius: 1rem;
+    gap: 0.75rem;
+  }
+
+  .comparison-cols {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.45rem;
+  }
+
+  .col-vs-box {
+    padding: 0.65rem 0.5rem;
+    gap: 0.4rem;
+    border-radius: 0.65rem;
+  }
+
+  .vs-title {
+    font-size: 1.15rem;
+  }
+
+  .vs-list {
+    gap: 0.35rem;
+  }
+
+  .vs-list li {
+    font-size: 0.75rem;
+    gap: 0.25rem;
+    line-height: 1.15;
+  }
+
+  /* Steps Progression Timeline on Mobile */
+  .steps-progression-timeline {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    margin-top: 1rem;
+  }
+
+  .step-progress-line {
+    display: none;
+  }
+
+  .step-num-circle {
+    width: 38px;
+    height: 38px;
+    font-size: 1.35rem;
+  }
+
+  .step-heading {
+    font-size: 1.25rem;
+  }
+
+  .step-summary {
+    font-size: 0.84rem;
+    line-height: 1.35;
+  }
+
+  /* Founder Manifesto on Mobile */
+  .founder-section {
+    padding: 2rem 0;
+  }
+
+  .founder-editorial-manifesto {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .editorial-quote-mark {
+    display: none;
+  }
+
+  .founder-quote-statement {
+    font-size: 1.45rem;
+    line-height: 1.05;
+    border-left: none;
+    border-top: 3px solid var(--color-red);
+    padding-left: 0;
+    padding-top: 0.75rem;
+    margin: 0.5rem 0 1rem 0;
+  }
+
+  .founder-signoff-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .mascot-bistro-badge {
+    max-width: 180px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  /* Refer */
+  .refer-box {
+    padding: 1.25rem 0.85rem;
+  }
+
+  .referral-link-container {
+    flex-direction: column;
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  .refer-action-buttons {
+    flex-direction: column;
+  }
+
+  /* Delivery Checker */
+  .delivery-box {
+    padding: 1.25rem 1rem;
+  }
+
+  .pincode-input-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .pincode-input {
+    font-size: 1.35rem;
+    padding: 0.5rem;
+  }
+
+  /* Delivery Partners */
+  .takeout-circle-box {
+    width: 130px;
+    height: 130px;
+  }
+
+  .circle-text-spin-badge {
+    inset: -16px;
+  }
+
+  .partner-pills-row {
+    gap: 0.5rem;
+  }
+
+  .partner-pill {
+    padding: 0.5rem 1rem;
+    min-width: 120px;
+    font-size: 1.15rem;
+  }
+
+  /* Footer: 2-Col Navigation & Compact Mobile Height */
+  .site-footer {
+    padding: 1.25rem 0 0.85rem 0;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .footer-brand {
+    gap: 0.4rem;
+  }
+
+  .footer-logo-img {
+    height: 74px;
+    max-width: 175px;
+  }
+
+  .footer-tagline {
+    font-size: 1.5rem;
+  }
+
+  .footer-manifesto-text {
+    font-size: 0.92rem;
+    line-height: 1.35;
+  }
+
+  .footer-col-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .footer-nav-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.35rem 0.65rem;
+  }
+
+  .footer-nav-list a {
+    font-size: 1.05rem;
+  }
+
+  .footer-bottom-bar {
+    padding-top: 0.85rem;
+    margin-top: 0.65rem;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+  }
+
+  .sticky-mobile-bar {
+    display: flex;
+  }
+}
+
+/* Compact Laptop / Short Viewport Fine-Tuning (e.g. 1366x768 with browser toolbars) */
+@media (min-width: 769px) and (max-height: 720px) {
+  .hero-foreground {
+    padding: 0.25rem 0 0.5rem 0;
+  }
+  .hero-content {
+    gap: 0.25rem;
+  }
+  .hero-offer-strip {
+    font-size: 0.82rem;
+    padding: 0.15rem 0.65rem;
+  }
+  .hero-title {
+    font-size: clamp(3.75rem, 5.5vw, 4.85rem);
+    line-height: 0.86;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.25;
+  }
+  .lead-capture-card {
+    padding: 0.65rem 0.95rem;
+    gap: 0.3rem;
+  }
+  .form-input, .hero-submit-btn {
+    height: 36px;
+  }
+  .hero-pill-frame {
+    max-width: 360px;
+    aspect-ratio: 1.38 / 1;
+    border-radius: 90px;
+  }
+  .rotating-stamp {
+    width: 80px;
+    height: 80px;
+    top: -10px;
+    right: -6px;
+  }
+}

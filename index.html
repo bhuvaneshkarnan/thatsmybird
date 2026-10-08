@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>That's My Bird — Fast Food. Not Old Food. Chettinad Fried Chicken</title>
+  <meta name="description" content="Chettinad fried chicken, cut, marinated and cooked the same day. No frozen stock. 5-ingredient Panag. Old Tamil roots, modern rebels. Launching soon in Chennai.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./thats_my_bird_logo_transparent.png">
+
+  <!-- Typography: Teko (Condensed Bistro Display) + Barlow (Clean Humanist Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bavet Design System (Strict No Box-Shadows, No AI Gradients, Pure Bistro Palette) -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       TOP ANNOUNCEMENT BAR (Bavet Notification Strip)
+       ========================================================================== -->
+  <aside class="top-ticker-bar" aria-label="Announcement">
+    <div class="top-ticker-content">
+      <span class="highlight">EARLY BIRDS</span>
+      <span>GET A FREE PANAG FIZZ WITH FIRST ORDER<span class="ticker-extra">&nbsp;·&nbsp; LAUNCHING SOON IN CHENNAI</span> &nbsp;·&nbsp;</span>
+      <a href="#hero-lead-form" class="top-ticker-link trigger-join-modal">JOIN THE FLOCK →</a>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION (Bavet Centered 3-Column Split Layout)
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="site-container">
+      <div class="nav-wrapper">
+        
+        <!-- Mobile Left Spacer for Balanced Centering -->
+        <div class="mobile-nav-spacer" aria-hidden="true"></div>
+
+        <!-- Left Nav Links -->
+        <nav class="nav-column nav-left" aria-label="Primary Left Navigation">
+          <a href="#the-problem" class="nav-link">The Problem</a>
+          <a href="#freshness" class="nav-link">Our Answer</a>
+          <a href="#menu" class="nav-link">Menu</a>
+        </nav>
+
+        <!-- Center: Iconic Brand Logo (Crisp High-Contrast Dark Brand Asset) -->
+        <a href="#" class="brand-logo-wrap" aria-label="That's My Bird Home">
+          <img src="./thats_my_bird_logo_dark.png" alt="That's My Bird" class="brand-logo-img">
+        </a>
+
+        <!-- Right Nav Links & CTA -->
+        <nav class="nav-column nav-right" aria-label="Primary Right Navigation">
+          <a href="#why-us" class="nav-link">Why Us</a>
+          <a href="#panag-story" class="nav-link">Panag Story</a>
+          <a href="#delivery-checker" class="nav-link">Delivery</a>
+          <button type="button" class="btn btn-primary btn-sm trigger-join-modal">
+            Join The Flock
+          </button>
+        </nav>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-nav-toggle" aria-label="Open Mobile Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo-wrap">
+        <img src="./thats_my_bird_logo_white.png" alt="That's My Bird Logo" class="brand-logo-img">
+      </div>
+      <button class="mobile-close-btn" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-links">
+      <a href="#the-problem">01. The Problem</a>
+      <a href="#freshness">02. Our Answer</a>
+      <a href="#menu">03. The Menu</a>
+      <a href="#why-us">04. Why Choose Us</a>
+      <a href="#panag-story">05. The Panag Story</a>
+      <a href="#delivery-checker">06. Check Delivery</a>
+      <a href="#founder-note">07. Founder Note</a>
+      <a href="#faq">08. FAQ</a>
+    </div>
+    <div class="mobile-drawer-footer">
+      <button type="button" class="btn btn-white btn-lg trigger-join-modal" style="width: 100%;">
+        JOIN THE FLOCK NOW
+      </button>
+      <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.85; text-align: center; color: var(--color-white);">
+        Same-Day Fresh · No Preservatives · Chennai
+      </p>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       1. HERO SECTION (Bavet Tilted Kinetic Marquee + Pill Mask + Lead Box)
+       ========================================================================== -->
+  <section class="hero-section" id="hero">
+    
+    <!-- Bavet Signature: 3-Tier Angled Kinetic Cinema Marquee Backdrop -->
+    <div class="hero-cinema-backdrop" aria-hidden="true">
+      <div class="cinema-titles-tilted">
+        
+        <!-- Track 1: Moving Left -->
+        <div class="cinema-ticker-track ticker-left">
+          <div class="cinema-item text-red">FAST FOOD<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-outline-red">NOT OLD FOOD<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-red">CHETTINAD FRIED CHICKEN<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-outline-red">CUT SAME DAY<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-red">OLD TAMIL ROOTS<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-outline-red">MODERN REBELS<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-red">ZERO FROZEN STOCK<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-outline-red">PANAG NOT SUGAR WATER<span class="cinema-dot"></span></div>
+          <!-- Loop Duplication -->
+          <div class="cinema-item text-red">FAST FOOD<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-outline-red">NOT OLD FOOD<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-red">CHETTINAD FRIED CHICKEN<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-outline-red">CUT SAME DAY<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-red">OLD TAMIL ROOTS<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-outline-red">MODERN REBELS<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-red">ZERO FROZEN STOCK<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-outline-red">PANAG NOT SUGAR WATER<span class="cinema-dot"></span></div>
+        </div>
+
+        <!-- Track 2: Moving Right -->
+        <div class="cinema-ticker-track ticker-right">
+          <div class="cinema-item text-outline-red">REAL STONE-GROUND SPICES<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-red">NO AMERICAN COATING<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-outline-red">5 INGREDIENT PANAG<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-red">7 CRAFT SAUCE DRIPS<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-outline-red">CHENNAI STREET REBELS<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-red">PACKED TO STAY CRISP<span class="cinema-dot"></span></div>
+          <!-- Loop Duplication -->
+          <div class="cinema-item text-outline-red">REAL STONE-GROUND SPICES<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-red">NO AMERICAN COATING<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-outline-red">5 INGREDIENT PANAG<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-red">7 CRAFT SAUCE DRIPS<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-outline-red">CHENNAI STREET REBELS<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-red">PACKED TO STAY CRISP<span class="cinema-dot"></span></div>
+        </div>
+
+        <!-- Track 3: Moving Left -->
+        <div class="cinema-ticker-track ticker-left">
+          <div class="cinema-item text-red">TODAY'S CUT<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-outline-red">NEVER FROZEN<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-red">KALPASI &amp; GUNTUR PEPPER<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-outline-red">FIZZ STAYS SEPARATE<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-red">BATCH #01 PRIORITY<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-outline-red">FREE PANAG FIZZ<span class="cinema-dot"></span></div>
+          <!-- Loop Duplication -->
+          <div class="cinema-item text-red">TODAY'S CUT<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-outline-red">NEVER FROZEN<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-red">KALPASI &amp; GUNTUR PEPPER<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-outline-red">FIZZ STAYS SEPARATE<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-red">BATCH #01 PRIORITY<span class="cinema-dot"></span></div>
+          <div class="cinema-item text-outline-red">FREE PANAG FIZZ<span class="cinema-dot"></span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Foreground Content Container -->
+    <div class="site-container hero-foreground">
+      <div class="hero-grid">
+        
+        <!-- Left: High Converting Editorial Content & Lead Capture Box -->
+        <div class="hero-content">
+          
+          <div class="hero-offer-strip">
+            <span class="badge-dot"></span> EARLY BIRDS: FREE PANAG FIZZ WITH FIRST ORDER
+          </div>
+
+          <h1 class="display-huge hero-title">
+            FAST FOOD.<br>NOT OLD FOOD.
+          </h1>
+
+          <p class="hero-subtitle">
+            Chettinad fried chicken, <strong>cut, marinated and cooked the same day</strong>. Launching soon in <strong>Chennai [Alwarpet &amp; OMR]</strong>.
+          </p>
+
+          <!-- Core Trust Verification Badges -->
+          <div class="hero-trust-pills">
+            <span class="hero-trust-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              SAME-DAY FRESH
+            </span>
+            <span class="hero-trust-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              ZERO FROZEN STOCK
+            </span>
+            <span class="hero-trust-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              5 REAL INGREDIENTS
+            </span>
+          </div>
+
+          <!-- Solid Flat Lead Card (Strict Zero Box Shadows) -->
+          <div class="lead-capture-card">
+            <div class="lead-card-header">
+              <span class="lead-card-title">JOIN THE EARLY FLOCK</span>
+              <span class="lead-card-tag">100% PRIVATE</span>
+            </div>
+
+            <form id="hero-lead-form">
+              <div class="lead-form-grid">
+                
+                <div class="form-group">
+                  <label class="form-label" for="hero-name">Full Name</label>
+                  <input type="text" id="hero-name" name="name" class="form-input" placeholder="e.g. Karthik Sundaram" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="hero-phone">WhatsApp Number</label>
+                  <input type="tel" id="hero-phone" name="phone" class="form-input" placeholder="e.g. 98765 43210" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="hero-pincode">Delivery Pincode</label>
+                  <input type="text" id="hero-pincode" name="pincode" class="form-input" placeholder="e.g. 600028 (Chennai)" maxlength="6" required>
+                </div>
+
+                <div class="form-group form-submit-group">
+                  <label class="form-label form-submit-label" aria-hidden="true">&nbsp;</label>
+                  <button type="submit" class="btn btn-primary btn-lg full-btn hero-submit-btn">
+                    JOIN THE FLOCK →
+                  </button>
+                </div>
+
+              </div>
+            </form>
+
+            <div class="form-fineprint">
+              <svg class="icon-inline" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+              <span>100% Private · Zero spam, ever. Launch notifications only.</span>
+            </div>
+
+            <div class="waitlist-live-badge">
+              <span class="pulse"></span>
+              <span>Waitlist Counter: <strong class="live-waitlist-count">1,428</strong> foodies have joined the flock</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Bavet Central Pill Centerpiece Frame -->
+        <div class="hero-visual">
+          
+          <!-- Rotating Freshness Stamp Badge (Bavet Signature) -->
+          <div class="rotating-stamp">
+            <svg viewBox="0 0 100 100">
+              <path id="stamp-curve" fill="none" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+              <text font-family="'Teko', sans-serif" font-size="11.5" font-weight="700" fill="#C33130" letter-spacing="1.8">
+                <textPath href="#stamp-curve">CUT • COOKED • EATEN • SAME DAY • BATCH #01 •</textPath>
+              </text>
+            </svg>
+          </div>
+
+          <!-- Retro Bistro Sticker Badges -->
+          <div class="hero-sticker-badge badge-top-left">
+            <svg class="icon-inline" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 23c-4.97 0-9-3.9-9-8.7 0-4.13 2.87-8.1 6.55-10.87.53-.4.86-.33.86.32 0 1.48.51 2.94 1.49 4.02.2.22.56.09.58-.21.08-1.58.74-3.52 2.37-4.97.45-.4.84-.2.84.41 0 1.37.52 2.84 1.5 3.96.22.25.59.1.61-.22.14-1.87 1.15-3.3 2.45-4.22.46-.33.91-.07.87.5-.32 4.67 1.88 7.37 1.88 11.28C22.6 19.33 17.84 23 12 23z"/></svg>
+            <span>ZERO FROZEN STOCK</span>
+          </div>
+          <div class="hero-sticker-badge badge-bottom-right">
+            <svg class="icon-inline" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.5 8.5 2 9.2l5.5 5-1.5 7.3 6-3.5 6 3.5-1.5-7.3 5.5-5-7.5-.7z"/></svg>
+            <span>AUTHENTIC CHETTINAD</span>
+          </div>
+
+          <!-- Giant Pill Shape Holding Crispy Chicken -->
+          <div class="hero-pill-frame">
+            <img src="./Crispy Golden Fried Chicken Wing.png" alt="Crispy Chettinad Fried Chicken Wing" class="hero-pill-img">
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TRUST ASSURANCE STRIP (High-Density Stat Ribbon — No Generic Boxes)
+       ========================================================================= -->
+  <section class="trust-bar-section" id="trust-pillars" aria-label="Authenticity and Trust Guarantees">
+    <div class="site-container">
+      <div class="trust-stat-ribbon">
+        
+        <div class="stat-unit">
+          <div class="stat-top-line">
+            <span class="stat-big-num">0 DAYS</span>
+            <span class="stat-pill-tag">FROZEN</span>
+          </div>
+          <span class="stat-title">ZERO FROZEN STOCK</span>
+          <span class="stat-sub">Prepped fresh daily at 6:00 AM</span>
+        </div>
+
+        <div class="stat-divider" aria-hidden="true"></div>
+
+        <div class="stat-unit">
+          <div class="stat-top-line">
+            <span class="stat-big-num">100%</span>
+            <span class="stat-pill-tag tag-green">SAME DAY</span>
+          </div>
+          <span class="stat-title">CUT &amp; COOKED TODAY</span>
+          <span class="stat-sub">Never stored overnight. Ever.</span>
+        </div>
+
+        <div class="stat-divider" aria-hidden="true"></div>
+
+        <div class="stat-unit">
+          <div class="stat-top-line">
+            <span class="stat-big-num">5 RAW</span>
+            <span class="stat-pill-tag">INGREDIENTS</span>
+          </div>
+          <span class="stat-title">MINERAL PANAG FIZZ</span>
+          <span class="stat-sub">Jaggery, lemon, sukku &amp; spices</span>
+        </div>
+
+        <div class="stat-divider" aria-hidden="true"></div>
+
+        <div class="stat-unit">
+          <div class="stat-top-line">
+            <span class="stat-big-num">0%</span>
+            <span class="stat-pill-tag tag-green">CLEAN</span>
+          </div>
+          <span class="stat-title">ZERO PRESERVATIVES</span>
+          <span class="stat-sub">No chemicals, MSG or softeners</span>
+        </div>
+
+        <div class="stat-divider" aria-hidden="true"></div>
+
+        <div class="stat-unit">
+          <div class="stat-top-line">
+            <span class="stat-big-num">12 HRS</span>
+            <span class="stat-pill-tag">TIMELINE</span>
+          </div>
+          <span class="stat-title">FARM TO TONGUE</span>
+          <span class="stat-sub">Direct kitchen batch priority</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       2. THE PROBLEM (Full-Bleed Deep Charcoal Editorial Manifesto)
+       ========================================================================== -->
+  <section class="problem-section" id="the-problem">
+    <div class="site-container">
+      
+      <div class="problem-manifesto-header">
+        <span class="section-kicker text-red">A REAL QUESTION FOR YOUR TASTEBUDS</span>
+        
+        <h2 class="display-large problem-quote text-white">
+          ASK YOUR FAVOURITE FAST FOOD CHAIN:<br>
+          <span class="quote-highlight">&ldquo;WHEN WAS THIS CHICKEN CUT?&rdquo;</span>
+        </h2>
+
+        <div class="problem-answer-banner">
+          <span class="problem-answer-text">MOST CAN'T ANSWER. WE CAN:</span>
+          <span class="answer-stamp-pill">TODAY.</span>
+        </div>
+
+        <p class="problem-subtitle-tag">
+          WHY FAST FOOD IS ALWAYS OLD FOOD &bull; AND WHY DOES IT ALWAYS COME WITH A BOTTLE OF SUGAR WATER?
+        </p>
+      </div>
+
+      <!-- Linear Editorial Manifesto Rows (No Generic Cards) -->
+      <div class="problem-editorial-strip">
+        
+        <div class="editorial-line-item">
+          <div class="editorial-num">01</div>
+          <div class="editorial-content">
+            <h4 class="editorial-title">FROZEN FOR MONTHS IN WAREHOUSES</h4>
+            <p class="editorial-desc">
+              Global fast food chains butcher poultry weeks ago in central slaughterhouses, inject chemical brines, and freeze it rock-solid. You end up chewing rubbery, thawed bird.
+            </p>
+          </div>
+        </div>
+
+        <div class="editorial-line-item">
+          <div class="editorial-num">02</div>
+          <div class="editorial-content">
+            <h4 class="editorial-title">COPIED AMERICAN COATING &amp; MSG</h4>
+            <p class="editorial-desc">
+              Bland bleached wheat flour and synthetic onion dust engineered 8,000 miles away. Our ancestors had Kalpasi (stone flower), Tellicherry pepper, and roasted cumin. We brought real flavor home.
+            </p>
+          </div>
+        </div>
+
+        <div class="editorial-line-item">
+          <div class="editorial-num">03</div>
+          <div class="editorial-content">
+            <h4 class="editorial-title">BOTTLED CHEMICAL SUGAR WATER</h4>
+            <p class="editorial-desc">
+              42 grams of high-fructose corn syrup, caramel dye (E150d), and tooth-eating phosphoric acid per can. We wake up ancient Tamil isotonic coolers made with raw mineral jaggery and sun-dried ginger.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. OUR ANSWER: SAME-DAY FRESHNESS (Bavet 4-Step Freshness Grid)
+       ========================================================================== -->
+  <section class="freshness-section" id="freshness">
+    <div class="site-container">
+      
+      <div class="freshness-intro">
+        <span class="section-kicker" style="color: var(--bg-beige);">FARM TO TONGUE IN 12 HOURS</span>
+        <h2 class="section-title" style="color: var(--color-white); margin-bottom: 0.75rem;">
+          CUT. MARINATED. COOKED. EATEN.<br>SAME DAY.
+        </h2>
+        <p style="font-size: 1.25rem; color: var(--bg-beige); line-height: 1.45;">
+          No frozen stock. No "cut/frozen/chilled yesterday." Fast food can be fresh food.<br>
+          Waking up Lost Drinks from our roots. 7 Sauces to choose from.
+        </p>
+      </div>
+
+      <!-- 4-Step Freshness Cycle Grid -->
+      <div class="freshness-cycle-grid">
+        
+        <div class="freshness-step-card">
+          <div class="step-time-badge">06:00 AM</div>
+          <h3 class="step-action-title">01. CUT</h3>
+          <p class="step-detail-desc">
+            Farm-fresh birds prepped every single morning. Never placed in deep-freeze lockers. When today's cut runs out, our kitchen closes.
+          </p>
+        </div>
+
+        <div class="freshness-step-card">
+          <div class="step-time-badge">09:00 AM</div>
+          <h3 class="step-action-title">02. MARINATED</h3>
+          <p class="step-detail-desc">
+            Dunked in hand-ground Chettinad spices, black stone flower (Kalpasi), fresh curd, and curry leaf paste for deep bone-level flavor.
+          </p>
+        </div>
+
+        <div class="freshness-step-card">
+          <div class="step-time-badge">ON ORDER</div>
+          <h3 class="step-action-title">03. COOKED</h3>
+          <p class="step-detail-desc">
+            Dropped into sizzling small-batch oil only when your token is punched. Crisp acoustic crackle outside, steaming tender meat inside.
+          </p>
+        </div>
+
+        <div class="freshness-step-card">
+          <div class="step-time-badge">MINUTES LATER</div>
+          <h3 class="step-action-title">04. EATEN</h3>
+          <p class="step-detail-desc">
+            Delivered hot in ventilated steam-release craft boxes so the crunch stays acoustic until the very last bite.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Freshness Manifesto Banner -->
+      <div class="freshness-manifesto-bar">
+        <div class="manifesto-text-wrap">
+          <h3 class="display-small" style="color: var(--color-red);">THE SAME-DAY GUARANTEE</h3>
+          <p style="font-size: 1.15rem; color: var(--color-charcoal); margin-top: 0.35rem;">
+            If you ask our counter crew "When was this cut?", they will show you today's morning butchery slip. No games, no corporate excuses.
+          </p>
+        </div>
+        <button type="button" class="btn btn-primary btn-md trigger-join-modal">
+          TASTE REAL FRESHNESS →
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. THE MENU (Bavet Plates Showcase & Interactive Customizer)
+       ========================================================================== -->
+  <section class="menu-section" id="menu">
+    <div class="site-container">
+      
+      <div class="menu-header-bar">
+        <div>
+          <span class="section-kicker">CRAFTED FRESH DAILY</span>
+          <h2 class="section-title text-red">OUR MENU</h2>
+          <p style="font-size: 1.2rem; color: var(--color-charcoal); margin-top: 0.25rem;">
+            Prices from <strong>₹149</strong> · Real Birds, Ancient Masalas, Rebel Lost Drinks
+          </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="menu-filter-nav" role="tablist">
+          <button class="filter-tab active" data-category="all">All Dishes</button>
+          <button class="filter-tab" data-category="bird">The Bird</button>
+          <button class="filter-tab" data-category="wrap">Jumbo Wraps</button>
+          <button class="filter-tab" data-category="fizz">The Fizz</button>
+          <button class="filter-tab" data-category="sauces">7 Sauces</button>
+          <button class="filter-tab" data-category="sides">Sides</button>
+        </div>
+      </div>
+
+      <!-- Menu Cards Grid (Bavet Plates Style) -->
+      <div class="menu-cards-grid">
+        
+        <!-- Item 1: Chettinad Wing -->
+        <article class="menu-item-card" data-category="bird">
+          <div class="card-img-wrap">
+            <span class="card-badge">HOT SIGNATURE</span>
+            <img src="./Crispy Golden Fried Chicken Wing.png" alt="Chettinad Fried Chicken Wing" class="card-plate-img">
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-title-row">
+                <h3 class="card-item-title">Chettinad Wings &amp; Bucket</h3>
+                <span class="card-price">₹189</span>
+              </div>
+              <p class="card-item-desc">
+                Crisp crackling outside, fiery stone-ground Chettinad spice inside. Marinated in fresh curd, guntur chilli, and roasted star anise.
+              </p>
+            </div>
+            <div class="card-meta-row">
+              <span class="spice-meter"><span class="heat-bars"><span class="bar full"></span><span class="bar full"></span><span class="bar full"></span></span> FIERY SPICE</span>
+              <span class="font-heading card-subtitle-tag">Bucket / Boneless / Wings</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 2: Jumbo Birdie Wrap -->
+        <article class="menu-item-card" data-category="wrap">
+          <div class="card-img-wrap">
+            <span class="card-badge">LAYERED STUDY</span>
+            <img src="./Jumbo Birdie Wrap_ A Layered Flavor Study.png" alt="Jumbo Birdie Wrap" class="card-plate-img">
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-title-row">
+                <h3 class="card-item-title">Jumbo Birdie Wrap</h3>
+                <span class="card-price">₹229</span>
+              </div>
+              <p class="card-item-desc">
+                A layered flavor study: Crunchy Chettinad chicken tenders, crisp shallot slaw, and house-made curry-leaf garlic mayo rolled in flaky Malabar parotta.
+              </p>
+            </div>
+            <div class="card-meta-row">
+              <span class="spice-meter"><span class="heat-bars"><span class="bar full"></span><span class="bar full"></span><span class="bar"></span></span> BALANCED HEAT</span>
+              <span class="font-heading card-subtitle-tag">Flaky Parotta Wrap</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 3: Panag Classic -->
+        <article class="menu-item-card" data-category="fizz">
+          <div class="card-img-wrap">
+            <span class="card-badge" style="background-color: var(--color-charcoal);">TAMIL ROOTS</span>
+            <img src="./panagam.png" alt="Panag Ancient Tamil Cooler" class="card-plate-img">
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-title-row">
+                <h3 class="card-item-title">Panag Classic Cooler</h3>
+                <span class="card-price">₹89</span>
+              </div>
+              <p class="card-item-desc">
+                Ancient Tamil isotonic cooler resurrected: Organic mineral jaggery, fresh lemon juice, green cardamom, sun-dried ginger, and crushed pepper. Zero refined sugar.
+              </p>
+            </div>
+            <div class="card-meta-row">
+              <span class="font-heading text-red">5 PURE INGREDIENTS</span>
+              <span class="font-heading card-subtitle-tag">Digestive Cooler</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 4: Fizz Panag -->
+        <article class="menu-item-card" data-category="fizz">
+          <div class="card-img-wrap">
+            <span class="card-badge">EARLY BIRD FREEBIE</span>
+            <img src="./panagam(1).png" alt="Fizz Panag with Soda" class="card-plate-img">
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-title-row">
+                <h3 class="card-item-title">Fizz Panag (DIY Pour)</h3>
+                <span class="card-price">₹99</span>
+              </div>
+              <p class="card-item-desc">
+                Same authentic Panag elixir, topped with chilled effervescent soda you pour yourself. The fizz stays separate during transit so it never goes flat.
+              </p>
+            </div>
+            <div class="card-meta-row">
+              <span class="font-heading text-red">SPARKLING DIGESTIVE</span>
+              <span class="font-heading card-subtitle-tag">Self-Pour Soda</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 5: Seven Craft Sauces -->
+        <article class="menu-item-card" data-category="sauces">
+          <div class="card-img-wrap">
+            <span class="card-badge">7 SAUCES TO CHOOSE</span>
+            <img src="./Seven Sauce Drips Flavor Banner.png" alt="Seven Sauce Drips Flavor Banner" class="card-plate-img">
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-title-row">
+                <h3 class="card-item-title">7 Signature Sauce Drips</h3>
+                <span class="card-price">₹39</span>
+              </div>
+              <p class="card-item-desc">
+                From fiery Guntur Ghost to Tangy Tamarind Jaggery, Roasted Curry Aioli, Sukku Honey, Madras Garlic, Green Chilli Cilantro, and Pepper Mustard Dip.
+              </p>
+            </div>
+            <div class="card-meta-row">
+              <span class="font-heading text-red">CRAFT HOUSE DRIPS</span>
+              <span class="font-heading card-subtitle-tag">Pick Any 3 for ₹99</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 6: Craft Sides -->
+        <article class="menu-item-card" data-category="sides">
+          <div class="card-img-wrap">
+            <span class="card-badge">CRUNCHY SIDES</span>
+            <img src="./Chilled Lemonade with Bold Chicken Branding.png" alt="Gunpowder Fries & Sides" class="card-plate-img">
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-title-row">
+                <h3 class="card-item-title">Gunpowder Podi Fries</h3>
+                <span class="card-price">₹149</span>
+              </div>
+              <p class="card-item-desc">
+                Thick-cut skin-on fries and crunchy tenders tossed in traditional roasted idli podi, ghee drizzle, and curry leaf crackle. Served piping hot.
+              </p>
+            </div>
+            <div class="card-meta-row">
+              <span class="spice-meter"><span class="heat-bars"><span class="bar full"></span><span class="bar"></span><span class="bar"></span></span> PODI CRUST</span>
+              <span class="font-heading card-subtitle-tag">Small-Batch Fry</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Interactive Spice Customizer (Bavet Feature) -->
+      <div class="spice-toggle-box">
+        <div class="spice-info-wrap">
+          <h4 class="display-small text-red">CHOOSE YOUR HEAT LEVEL</h4>
+          <p id="spice-feedback-text" class="spice-desc-text">
+            MEDIUM: Traditional Chennai street-kitchen kick. Fresh Guntur chilli crunch with Kalpasi aroma.
+          </p>
+        </div>
+        <div class="spice-options">
+          <button class="spice-btn" data-level="mild">Mild (Warm)</button>
+          <button class="spice-btn active" data-level="medium">Medium (Chennai Heat)</button>
+          <button class="spice-btn" data-level="full">Full Chettinad (Fiery!)</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. WHY CHOOSE US VS. WHY NOT (The Ultimate Head-to-Head Battleground)
+       ========================================================================== -->
+  <section class="why-us-section" id="why-us">
+    <div class="site-container">
+      
+      <div class="section-title-center">
+        <span class="section-kicker">THE UNAPOLOGETIC REALITY CHECK</span>
+        <h2 class="section-title text-red">WHY CHOOSE US &bull; AND WHY NOT THE OTHERS</h2>
+        <p class="section-subtext">
+          Compare the corporate industrial fast-food reality with That&rsquo;s My Bird. Two completely opposite philosophies.
+        </p>
+      </div>
+
+      <!-- The High-Impact Head-to-Head Arena -->
+      <div class="battle-arena">
+        
+        <!-- Left: The Old Fast Food Monopolies (Why NOT Them) -->
+        <div class="battle-column battle-them">
+          <div class="battle-header">
+            <span class="battle-status-badge badge-them">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              WHY NOT: THE OLD CORPORATE CHAINS
+            </span>
+            <h3 class="battle-brand-title">THE FROZEN FAST FOOD MONOPOLY</h3>
+            <p class="battle-tagline">Engineered for infinite warehouse shelf life &amp; corporate margins.</p>
+          </div>
+
+          <div class="battle-rows">
+            <div class="battle-row">
+              <div class="battle-criterion">01. CUT &amp; PREP DATE</div>
+              <div class="battle-desc">
+                <strong>Slaughtered 30–90 days ago.</strong> Deep-frozen in industrial warehouse freezers, chemical-brined, and thawed out when ordered.
+              </div>
+            </div>
+
+            <div class="battle-row">
+              <div class="battle-criterion">02. THE COATING &amp; SPICE</div>
+              <div class="battle-desc">
+                <strong>Copied American industrial flour.</strong> Synthetic onion powder and artificial MSG engineered 8,000 miles away.
+              </div>
+            </div>
+
+            <div class="battle-row">
+              <div class="battle-criterion">03. WHAT YOU DRINK</div>
+              <div class="battle-desc">
+                <strong>Bottled chemical sugar water.</strong> 42 grams of high-fructose corn syrup, caramel dye (E150d), and tooth-rotting phosphoric acid.
+              </div>
+            </div>
+
+            <div class="battle-row">
+              <div class="battle-criterion">04. PRESERVATIVES &amp; CHEMICALS</div>
+              <div class="battle-desc">
+                <strong>Sodium benzoates &amp; chemical dough conditioners.</strong> Synthetic binders to disguise stale, rubbery poultry texture.
+              </div>
+            </div>
+
+            <div class="battle-row">
+              <div class="battle-criterion">05. PACKAGING &amp; CRUNCH</div>
+              <div class="battle-desc">
+                <strong>Steamy cardboard boxes.</strong> Condensation traps trapped moisture during delivery, turning crust limp, oily, and soggy.
+              </div>
+            </div>
+
+            <div class="battle-row">
+              <div class="battle-criterion">06. THE REAL PHILOSOPHY</div>
+              <div class="battle-desc">
+                <strong>Sell yesterday's leftover stock.</strong> Maximize shareholder margins while customers celebrate eating old, stale bird.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center: VS Lightning Badge -->
+        <div class="battle-vs-divider" aria-hidden="true">
+          <div class="vs-circle">VS</div>
+        </div>
+
+        <!-- Right: That's My Bird (Why CHOOSE Us) -->
+        <div class="battle-column battle-us">
+          <div class="battle-header">
+            <span class="battle-status-badge badge-us">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              WHY CHOOSE: THAT&rsquo;S MY BIRD
+            </span>
+            <h3 class="battle-brand-title text-white">THE CHETTINAD REBEL KITCHEN</h3>
+            <p class="battle-tagline text-beige">Cut, marinated, cooked &amp; eaten today. Old Tamil roots, modern crunch.</p>
+          </div>
+
+          <div class="battle-rows">
+            <div class="battle-row">
+              <div class="battle-criterion text-accent">01. CUT &amp; PREP DATE</div>
+              <div class="battle-desc">
+                <strong>CUT &amp; COOKED TODAY.</strong> Fresh farm poultry prepped daily at 6:00 AM. Zero frozen stock. When today's batch sells out, we close.
+              </div>
+            </div>
+
+            <div class="battle-row">
+              <div class="battle-criterion text-accent">02. THE COATING &amp; SPICE</div>
+              <div class="battle-desc">
+                <strong>STONE-GROUND TAMIL HERITAGE.</strong> Stone flower (Kalpasi), Tellicherry black pepper, and whole roasted Chettinad spices.
+              </div>
+            </div>
+
+            <div class="battle-row">
+              <div class="battle-criterion text-accent">03. WHAT YOU DRINK</div>
+              <div class="battle-desc">
+                <strong>5-INGREDIENT PANAG FIZZ.</strong> Mineral jaggery (Vellam), fresh squeezed lemon, dry ginger (sukku), cardamom &amp; pepper. 0 chemicals.
+              </div>
+            </div>
+
+            <div class="battle-row">
+              <div class="battle-criterion text-accent">04. PRESERVATIVES &amp; CHEMICALS</div>
+              <div class="battle-desc">
+                <strong>ZERO PRESERVATIVES. ZERO NONSENSE.</strong> 100% clean-label food. If a 10-year-old child cannot pronounce it, we refuse to cook with it.
+              </div>
+            </div>
+
+            <div class="battle-row">
+              <div class="battle-criterion text-accent">05. PACKAGING &amp; CRUNCH</div>
+              <div class="battle-desc">
+                <strong>STEAM-VENTED CRUNCH BOX.</strong> Engineered ventilation vents steam while locking in roasting heat. Arrives crackling crisp.
+              </div>
+            </div>
+
+            <div class="battle-row">
+              <div class="battle-criterion text-accent">06. THE REAL PHILOSOPHY</div>
+              <div class="battle-desc">
+                <strong>FOOD FOR REBELS.</strong> Built right here in Chennai to end the tyranny of cold, frozen American corporate fast food.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Decisive Verdict Callout Bar -->
+      <div class="battle-verdict-bar">
+        <div class="verdict-copy">
+          <span class="verdict-label">THE VERDICT IS SIMPLE:</span>
+          <span class="verdict-question">STILL SATISFIED EATING 3-WEEK-OLD FROZEN FAST FOOD?</span>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg trigger-join-modal">
+          JOIN THE REBELS (GET BATCH #01 VIP) &rarr;
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. THE PANAG STORY (Bavet Inverted Red Block Section)
+       ========================================================================== -->
+  <section class="panag-story-section" id="panag-story">
+    <div class="site-container">
+      
+      <div class="panag-split-grid">
+        
+        <!-- Left: Copy & Rebel Ingredients -->
+        <div class="panag-copy">
+          <span class="section-kicker" style="color: var(--bg-beige);">LOST DRINKS REVIVAL</span>
+
+          <h2 class="section-title">THE PANAG STORY</h2>
+          <p class="section-subtitle" style="color: var(--bg-beige); font-family: var(--font-heading); font-size: 1.45rem; text-transform: uppercase;">
+            Old Tamil roots. Modern rebels.
+          </p>
+
+          <p class="panag-body-p">
+            A small bottle of cola can hold <strong>6+ teaspoons of industrial sugar</strong> and tooth-rotting phosphoric acid. Our rebel brew has only:
+          </p>
+
+          <div class="panag-ingredients-row">
+            <span class="ingredient-pill">Jaggery (Vellam)</span>
+            <span class="ingredient-pill">Fresh Lemon</span>
+            <span class="ingredient-pill">Crushed Cardamom</span>
+            <span class="ingredient-pill">Dry Ginger (Sukku)</span>
+            <span class="ingredient-pill">Tellicherry Pepper</span>
+          </div>
+
+          <p class="panag-footer-tagline">
+            Plus soda or water. That's it. Nothing else, truly.
+          </p>
+        </div>
+
+        <!-- Right: Head-to-Head Comparison Card (Bavet Flat Solid Card) -->
+        <div class="panag-comparison-card">
+          <h3 class="display-small text-red" style="text-align: center;">THE BRUTAL COMPARISON</h3>
+
+          <div class="comparison-cols">
+            
+            <!-- Standard Cola -->
+            <div class="col-vs-box col-cola">
+              <span class="vs-title" style="color: #6E6B64;">STANDARD COLA</span>
+              <ul class="vs-list">
+                <li><svg class="icon-cross" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> <span>42g High-Fructose Corn Syrup</span></li>
+                <li><svg class="icon-cross" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> <span>Synthetic Caramel Color (E150d)</span></li>
+                <li><svg class="icon-cross" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> <span>Phosphoric Acid</span></li>
+                <li><svg class="icon-cross" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> <span>Zero Minerals or Electrolytes</span></li>
+                <li><svg class="icon-cross" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> <span>Heavy Sugar Crash</span></li>
+              </ul>
+            </div>
+
+            <!-- That's My Bird Panag -->
+            <div class="col-vs-box col-panag">
+              <span class="vs-title text-red">CRAFT PANAG</span>
+              <ul class="vs-list">
+                <li><svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Raw Mineral Rich Jaggery</span></li>
+                <li><svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Real Squeezed Citrus Lemon</span></li>
+                <li><svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Sun-Dried Ginger (Gut Aid)</span></li>
+                <li><svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Ancient Electrolyte Replenishment</span></li>
+                <li><svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Natural Digestif Spark</span></li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div style="text-align: center; margin-top: 0.5rem;">
+            <button type="button" class="btn btn-primary btn-md trigger-join-modal full-btn">
+              CLAIM FREE PANAG FIZZ WITH ORDER 1 →
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. HOW EARLY ACCESS WORKS (3 Clear Steps)
+       ========================================================================== -->
+  <section class="early-access-section" id="early-access">
+    <div class="site-container">
+      
+      <div class="section-title-center">
+        <span class="section-kicker">YOUR TICKET TO BATCH #01</span>
+        <h2 class="section-title text-red">HOW EARLY ACCESS WORKS</h2>
+        <p class="section-subtext">
+          We only cook limited birds on launch week. Here's how to ensure you don't miss out.
+        </p>
+      </div>
+
+  <!-- ==========================================================================
+       7. HOW EARLY ACCESS WORKS (Connected Horizontal Progression — No Generic Boxes)
+       ========================================================================== -->
+  <section class="early-access-section" id="early-access">
+    <div class="site-container">
+      
+      <div class="section-title-center">
+        <span class="section-kicker">YOUR TICKET TO BATCH #01</span>
+        <h2 class="section-title text-red">HOW EARLY ACCESS WORKS</h2>
+        <p class="section-subtext">
+          We only cook limited birds on launch week. Here's how to secure your hot batch.
+        </p>
+      </div>
+
+      <!-- Connected Progression Timeline (No Generic Cards) -->
+      <div class="steps-progression-timeline">
+        
+        <div class="timeline-step-item">
+          <div class="step-marker-wrap">
+            <span class="step-num-circle">1</span>
+            <div class="step-progress-line" aria-hidden="true"></div>
+          </div>
+          <div class="step-details">
+            <h3 class="step-heading">JOIN WITH NAME &amp; NUMBER</h3>
+            <p class="step-summary">
+              Drop your name, WhatsApp number, and delivery pincode in the flock form above. Takes under 15 seconds.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-step-item">
+          <div class="step-marker-wrap">
+            <span class="step-num-circle">2</span>
+            <div class="step-progress-line" aria-hidden="true"></div>
+          </div>
+          <div class="step-details">
+            <h3 class="step-heading">GET A LAUNCH ALERT</h3>
+            <p class="step-summary">
+              We'll send you a private VIP ordering link on WhatsApp 24 hours before we open to the general public.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-step-item">
+          <div class="step-marker-wrap">
+            <span class="step-num-circle">3</span>
+          </div>
+          <div class="step-details">
+            <h3 class="step-heading">CLAIM EARLY BIRD OFFER</h3>
+            <p class="step-summary">
+              Your free Panag Fizz voucher code will be automatically applied to your very first hot order.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. FOUNDER NOTE (Editorial Manifesto Layout — Signature European Bistro Styling)
+       ========================================================================== -->
+  <section class="founder-section" id="founder-note">
+    <div class="site-container">
+      
+      <div class="founder-editorial-manifesto">
+        
+        <!-- Large Stylized Bistro Quote Column -->
+        <div class="founder-quote-column">
+          <div class="editorial-quote-mark" aria-hidden="true">&ldquo;</div>
+          
+          <span class="section-kicker text-red">AUTHENTIC FOUNDER CREDO</span>
+          <h2 class="section-title text-charcoal" style="margin-bottom: 0.75rem;">WHY WE BUILT THAT'S MY BIRD</h2>
+
+          <blockquote class="founder-quote-statement">
+            I got tired of watching people rejoicing old, frozen fast food as fresh and forgetting the real, great food we once had. So we built a kitchen where the answer is always <span class="quote-red">&lsquo;TODAY.&rsquo;</span>
+          </blockquote>
+
+          <div class="founder-signoff-row">
+            <div class="founder-identity">
+              <div class="founder-sign-name">&mdash; Ganesan Padmanabhan</div>
+              <div class="founder-sign-role">Founder &bull; That's My Bird &bull; Chennai</div>
+            </div>
+
+            <div class="waitlist-editorial-pill">
+              <span class="pulse-green-dot"></span>
+              <span><strong class="live-waitlist-count">1,428</strong> foodies standing with our kitchen</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Distinct Mascot Stamp Column -->
+        <div class="founder-mascot-column">
+          <div class="mascot-bistro-badge">
+            <img src="./Cool Rooster Sunglasses Mascot.png" alt="Cool Rooster Sunglasses Mascot" class="mascot-badge-img">
+            <div class="mascot-stamp-banner">TAMIL ROOTS &bull; MODERN REBELS</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       9. REFER & UNLOCK (Bavet "Red Plate / Red Record" Viral Engine)
+       ========================================================================== -->
+  <section class="refer-section" id="refer">
+    <div class="site-container">
+      
+      <div class="refer-box">
+        <span class="section-kicker" style="color: var(--bg-beige); margin-bottom: 0.5rem;">SPREAD THE CRUNCH</span>
+        
+        <h2 class="section-title">REFER &amp; UNLOCK</h2>
+        
+        <p class="refer-highlight-p">
+          <strong>Bring 3 friends to pick up your order. Drinks on us for all of you.</strong>
+        </p>
+
+        <!-- Referral Link Box -->
+        <div class="referral-link-container">
+          <div class="referral-url-text" id="referral-url-text">
+            https://thatsmybird.in/join?ref=CHETTI-FLOCK
+          </div>
+          <button type="button" class="btn btn-white btn-sm" id="copy-ref-btn">
+            COPY LINK
+          </button>
+        </div>
+
+        <div class="refer-action-buttons">
+          <button type="button" class="btn btn-outline-white btn-md" id="whatsapp-share-btn">
+            <svg class="icon-inline" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.79 14.07c-.24.68-1.39 1.33-1.92 1.37-.5.04-1.12.06-3.62-.97-3.13-1.29-5.14-4.52-5.3-4.73-.15-.22-1.28-1.7-1.28-3.25 0-1.54.81-2.3 1.1-2.61.29-.31.63-.39.84-.39.21 0 .42 0 .61.01.2.01.47-.08.73.55.27.64.92 2.25 1 2.41.08.17.14.36.03.58-.11.23-.17.37-.34.57-.17.2-.36.45-.51.61-.17.17-.35.35-.15.7.2.34.89 1.47 1.91 2.38 1.31 1.17 2.41 1.53 2.76 1.7.34.17.55.14.75-.09.2-.23.86-1 1.09-1.35.23-.34.46-.29.77-.17.31.12 1.98.93 2.32 1.1.34.17.57.26.65.4.09.15.09.84-.15 1.52z"/></svg>
+            SHARE ON WHATSAPP
+          </button>
+          <button type="button" class="btn btn-white btn-md trigger-join-modal">
+            SIGN UP FIRST TO GET UNIQUE CODE →
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       10. CHECK DELIVERY (Bavet City Ticker + Interactive Pincode Checker)
+       ========================================================================== -->
+  <section class="delivery-section" id="delivery-checker">
+    
+    <!-- Bavet-Style Scrolling Neighborhood Marquee -->
+    <div class="city-marquee-bar" aria-hidden="true">
+      <div class="city-marquee-track">
+        <span>ALWARPET</span><span class="city-sep"></span>
+        <span>MYLAPORE</span><span class="city-sep"></span>
+        <span>ADYAR</span><span class="city-sep"></span>
+        <span>T. NAGAR</span><span class="city-sep"></span>
+        <span>ANNA NAGAR</span><span class="city-sep"></span>
+        <span>VELACHERY</span><span class="city-sep"></span>
+        <span>OMR</span><span class="city-sep"></span>
+        <span>BESANT NAGAR</span><span class="city-sep"></span>
+        <span>NUNGAMBAKKAM</span><span class="city-sep"></span>
+        <span>KILPAUK</span><span class="city-sep"></span>
+        <span>ECR</span><span class="city-sep"></span>
+        <span>KOTTURPURAM</span><span class="city-sep"></span>
+        <!-- Duplication for infinite loop -->
+        <span>ALWARPET</span><span class="city-sep"></span>
+        <span>MYLAPORE</span><span class="city-sep"></span>
+        <span>ADYAR</span><span class="city-sep"></span>
+        <span>T. NAGAR</span><span class="city-sep"></span>
+        <span>ANNA NAGAR</span><span class="city-sep"></span>
+        <span>VELACHERY</span><span class="city-sep"></span>
+        <span>OMR</span><span class="city-sep"></span>
+        <span>BESANT NAGAR</span><span class="city-sep"></span>
+        <span>NUNGAMBAKKAM</span><span class="city-sep"></span>
+        <span>KILPAUK</span><span class="city-sep"></span>
+        <span>ECR</span><span class="city-sep"></span>
+        <span>KOTTURPURAM</span><span class="city-sep"></span>
+      </div>
+    </div>
+
+    <div class="site-container" style="margin-top: 2rem;">
+      <div class="delivery-box">
+        <span class="section-kicker">HOT KITCHEN RADIUS</span>
+        <h2 class="section-title text-red">CHECK DELIVERY</h2>
+        <p class="section-subtext" style="max-width: 620px; margin: 0 auto;">
+          Enter your 6-digit Chennai pincode to verify if our delivery bike reaches you hot and crackling.
+        </p>
+
+        <div class="pincode-input-group">
+          <input type="text" id="delivery-pincode-input" class="pincode-input" placeholder="600028" maxlength="6">
+          <button type="button" class="btn btn-primary btn-md" id="check-pincode-btn">
+            CHECK PINCODE
+          </button>
+        </div>
+
+        <div id="delivery-result-msg" class="delivery-result-msg">
+          Try 600028, 600004, 600018, 600040, or your local Chennai postal code
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       11. FAQ ACCORDION (Solid Bistro Diner Accordion)
+       ========================================================================== -->
+  <section class="faq-section" id="faq">
+    <div class="site-container">
+      
+      <div class="section-title-center">
+        <span class="section-kicker">NO SECRETS</span>
+        <h2 class="section-title text-red">FREQUENTLY ASKED QUESTIONS</h2>
+        <p class="section-subtext">
+          Honest answers about our chickens, our spices, and our launch timeline.
+        </p>
+      </div>
+
+      <div class="faq-container">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <button class="faq-question-btn">
+            <span>When are you launching?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer-pane">
+            <div class="faq-answer-content">
+              Very soon! Our flagship Chennai kitchen is firing up its small-batch fryers this month. Early flock members who sign up on this page will get private WhatsApp access 24 hours before public launch.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-question-btn">
+            <span>Where will you deliver?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer-pane">
+            <div class="faq-answer-content">
+              Check your pincode using our interactive delivery checker above! Initial launch covers South &amp; Central Chennai (Alwarpet, Mylapore, Adyar, T. Nagar, Anna Nagar, Velachery, and OMR).
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-question-btn">
+            <span>How do I claim the Early Bird offer?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer-pane">
+            <div class="faq-answer-content">
+              We'll send a private coupon code directly to your verified WhatsApp number right before doors open. Apply it during checkout to unlock your complimentary chilled Panag Fizz!
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-question-btn">
+            <span>Will you spam me?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer-pane">
+            <div class="faq-answer-content">
+              No. We hate useless marketing spam as much as you do. You will strictly receive launch countdown alerts and your exclusive Early Bird voucher. Nothing else.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-question-btn">
+            <span>Is it spicy?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer-pane">
+            <div class="faq-answer-content">
+              Yes, authentic Chettinad food is renowned for bold spice, but you get to customize your heat: choose between <strong>Mild</strong> (peppery crunch), <strong>Medium</strong> (authentic Chennai kick), or <strong>Full Chettinad</strong> (fiery roasted masala heat).
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <button class="faq-question-btn">
+            <span>Is there a veg option?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer-pane">
+            <div class="faq-answer-content">
+              Yes! We have Chettinad spiced crispy Paneer bites and Wild Mushroom crispers, prepared in dedicated separate vegetarian fryers so flavors never cross.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 7 -->
+        <div class="faq-item">
+          <button class="faq-question-btn">
+            <span>Is Panag healthy?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer-pane">
+            <div class="faq-answer-content">
+              It's made with 5 real ingredients (jaggery, lemon, cardamom, dry ginger, pepper) and zero chemical preservatives or synthetic coloring. But jaggery is still natural sugar—we are completely transparent about that. It provides clean energy and natural digestive balance.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 8 -->
+        <div class="faq-item">
+          <button class="faq-question-btn">
+            <span>Which apps will you be on?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer-pane">
+            <div class="faq-answer-content">
+              You will be able to order directly on our official website for the fastest service and lowest prices, as well as on Swiggy and Zomato across Chennai.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       12. DELIVERY SERVICE PARTNERS (Bavet "Lazy-Friendly" Section)
+       ========================================================================== -->
+  <section class="delivery-partners-section" id="delivery-partners">
+    <div class="site-container">
+      
+      <!-- Bavet Circular Takeout Visual with Rotating Circular Text Stamp -->
+      <div class="takeout-showcase-wrap">
+        <div class="takeout-circle-box">
+          <img src="./Crispy Golden Fried Chicken Wing.png" alt="Takeout Box" class="takeout-img">
+          <!-- Rotating Text Stamp around the circle -->
+          <div class="circle-text-spin-badge">
+            <svg viewBox="0 0 200 200">
+              <path id="takeout-circle-path" fill="none" d="M 100, 100 m -70, 0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0" />
+              <text font-family="'Teko', sans-serif" font-size="14" font-weight="700" fill="#C33130" letter-spacing="3">
+                <textPath href="#takeout-circle-path">AUTHENTIC CHETTINAD &bull; DIRECT KITCHEN &bull; SPEED &amp; CRUNCH &bull;</textPath>
+              </text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="partners-header-wrap">
+        <span class="section-kicker">ORDER DIRECT OR THROUGH YOUR GO-TO APP</span>
+        <h2 class="section-title text-red">PICK YOUR FAVORITE &ldquo;LAZY-FRIENDLY&rdquo; DELIVERY SERVICE</h2>
+      </div>
+      
+      <div class="partner-pills-row">
+        <div class="partner-pill">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 18h6m-3-6l3 6m-3-6h-4l-2 4h4m4-4l2-4h3"/></svg>
+          <span>DIRECT KITCHEN</span>
+        </div>
+        <div class="partner-pill">
+          <span class="partner-dot bg-swiggy"></span>
+          <span>SWIGGY</span>
+        </div>
+        <div class="partner-pill">
+          <span class="partner-dot bg-zomato"></span>
+          <span>ZOMATO</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       13. FOLLOW OUR JOURNEY & FOOTER (Bavet Full Width Red Footer)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="site-container">
+      
+      <div class="footer-top-grid">
+        
+        <!-- Col 1: Brand Manifesto -->
+        <div class="footer-brand">
+          <div class="footer-logo-row">
+            <a href="#" class="footer-brand-link" aria-label="That's My Bird Home">
+              <img src="./thats_my_bird_logo_white.png" alt="That's My Bird Logo" class="footer-logo-img">
+            </a>
+          </div>
+          <p class="footer-tagline">
+            OLD TAMIL ROOTS.<br>MODERN REBELS.
+          </p>
+          <p class="footer-manifesto-text">
+            Chettinad fried chicken, cut, marinated and cooked the same day. Born in Chennai to end the tyranny of cold, frozen American fast food.
+          </p>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div>
+          <h4 class="footer-col-title">NAVIGATION</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#the-problem">The Problem</a></li>
+            <li><a href="#freshness">Our Answer (Freshness)</a></li>
+            <li><a href="#menu">The Menu</a></li>
+            <li><a href="#why-us">Why Choose Us</a></li>
+            <li><a href="#panag-story">The Panag Story</a></li>
+            <li><a href="#delivery-checker">Check Delivery Pincode</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Follow Journey -->
+        <div>
+          <h4 class="footer-col-title">FOLLOW OUR JOURNEY</h4>
+          <p style="font-size: 1.15rem; opacity: 0.9; margin-bottom: 1.5rem; line-height: 1.45;">
+            Behind the kitchen, one post at a time. Watch us test recipes, source real spices, and reject frozen poultry.
+          </p>
+          <div class="social-pills-row">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-pill">INSTAGRAM</a>
+            <a href="https://whatsapp.com" target="_blank" rel="noopener" class="social-pill">WHATSAPP</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="social-pill">YOUTUBE</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div>
+          &copy; 2026 That's My Bird. All rights reserved. Chettinad Freshness Standard.
+        </div>
+        <div class="footer-badges-row">
+          <span>Zero Frozen Stock</span>
+          <span>•</span>
+          <span>100% Same-Day Fresh</span>
+          <span>•</span>
+          <span>Chennai, India</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       STICKY BOTTOM MOBILE BAR (Bavet Mobile Conversion Booster)
+       ========================================================================== -->
+  <aside class="sticky-mobile-bar" aria-label="Mobile Quick Conversion Bar">
+    <div class="mobile-bar-offer">
+      <span class="flock">JOIN THE FLOCK</span>
+      <span class="deal">Free Panag Fizz Reserved</span>
+    </div>
+    <button type="button" class="btn btn-primary btn-sm trigger-join-modal">
+      GET VIP CODE →
+    </button>
+  </aside>
+
+  <!-- ==========================================================================
+       MODAL: QUICK JOIN THE FLOCK (Instant Modal for High Conversion)
+       ========================================================================== -->
+  <div class="modal-overlay" id="join-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <button class="modal-close-btn" aria-label="Close modal">&times;</button>
+      
+      <div>
+        <span class="problem-sub-eyebrow">VIP LAUNCH PASS</span>
+        <h3 id="modal-title" class="display-medium text-red">JOIN THE FLOCK</h3>
+        <p style="font-size: 1.1rem; color: #4A4843; margin-top: 0.25rem;">
+          Lock in your free Panag Fizz and 24-hour priority access for launch week!
+        </p>
+      </div>
+
+      <form id="modal-lead-form">
+        <div style="display: flex; flex-direction: column; gap: 1.1rem;">
+          
+          <div class="form-group">
+            <label class="form-label" for="modal-name">Your Full Name</label>
+            <input type="text" id="modal-name" name="name" class="form-input" placeholder="e.g. Anand R" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="modal-phone">WhatsApp Number</label>
+            <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="e.g. 98765 43210" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="modal-pincode">Chennai Delivery Pincode</label>
+            <input type="text" id="modal-pincode" name="pincode" class="form-input" placeholder="e.g. 600028" maxlength="6" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg full-btn" style="margin-top: 0.5rem;">
+            LOCK IN MY FREE DRINK →
+          </button>
+
+          <p class="form-fineprint" style="justify-content: center;">
+            <svg class="icon-inline" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+            <span>Strictly no spam. Launch notification &amp; voucher only.</span>
+          </p>
+
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Global Toast Notification Container -->
+  <div class="toast-notice" id="toast-notice" aria-live="polite"></div>
+
+  <!-- Interactive JavaScript Engine -->
+  <script src="./app.js"></script>
+
+</body>
+</html>
