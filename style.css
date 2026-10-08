@@ -161,14 +161,14 @@ button, input, select, textarea {
 .bg-beige-light { background-color: var(--bg-beige-light); }
 .bg-charcoal { background-color: var(--color-charcoal); }
 
-/* Containers */
+/* Containers — Generous Left & Right Margins for High-Converting Focus */
 .site-container {
   width: 100%;
-  max-width: 1360px;
+  max-width: 1180px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: clamp(1.25rem, 3.5vw, 3rem);
-  padding-right: clamp(1.25rem, 3.5vw, 3rem);
+  padding-left: clamp(2rem, 5vw, 4.5rem);
+  padding-right: clamp(2rem, 5vw, 4.5rem);
 }
 
 /* ==========================================================================
@@ -313,9 +313,9 @@ button, input, select, textarea {
 }
 
 .site-header .site-container {
-  max-width: 100%;
-  padding-left: clamp(1.25rem, 3.5vw, 3.5rem);
-  padding-right: clamp(1.25rem, 3.5vw, 3.5rem);
+  max-width: 1180px;
+  padding-left: clamp(2rem, 5vw, 4.5rem);
+  padding-right: clamp(2rem, 5vw, 4.5rem);
 }
 
 .nav-wrapper {
@@ -1471,10 +1471,20 @@ button, input, select, textarea {
 /* ==========================================================================
    5. WHY CHOOSE US (Bavet 6-Card Grid with Red Hover Transition)
    ========================================================================== */
-.why-us-section {
-  padding: clamp(1.75rem, 2.5vw, 2.25rem) 0;
+.why-us-section,
+.battle-section {
+  padding: clamp(2.25rem, 3.5vw, 3.5rem) 0;
   background-color: var(--bg-beige);
   border-bottom: 2px solid var(--border-beige);
+}
+
+.battle-section .problem-answer-banner {
+  background-color: var(--bg-beige-light);
+  border: 2px solid var(--border-beige);
+}
+
+.battle-section .problem-answer-text {
+  color: var(--color-charcoal);
 }
 
 .section-title-center {
@@ -2893,7 +2903,7 @@ button, input, select, textarea {
 
   /* Section Padding: Drastically Less Scrollable */
   .problem-section, .freshness-section, .menu-section, .why-us-section,
-  .panag-story-section, .early-access-section, .founder-section,
+  .battle-section, .panag-story-section, .early-access-section, .founder-section,
   .refer-section, .faq-section, .delivery-partners-section {
     padding: 1.25rem 0;
   }
