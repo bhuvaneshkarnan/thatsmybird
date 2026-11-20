@@ -96,7 +96,7 @@ function initWaitlistCounter() {
    1. Follow instructions in google-sheets-script.js
    2. Replace the URL below with your deployed Web App URL
    ========================================================================== */
-const GOOGLE_SHEETS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbwwasyp5SUcWDOx7mKKI7BS4Dy_z2SiZKhBgexxNCffj2dRh0j80PvOZd_Cjz2Z0L1X/exec';
+const GOOGLE_SHEETS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbxHb6XR-aikE4njIk-9sC1nbF8M8aQ6Z8PYD5c5oo4N8gS7dKOjh2kD3N2ESAgAFOAf/exec';
 
 /* ==========================================================================
    LEAD CAPTURE FORMS (Hero & Quick Modal with CAPTCHA & Google Sheets)
