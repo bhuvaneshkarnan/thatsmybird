@@ -4,21 +4,21 @@
  * ==============================================================================
  * Connects your landing page lead forms directly to this Google Sheet!
  *
- * HOW TO SET THIS UP (2-MINUTE WALKTHROUGH):
- * 1. Open Google Sheets (https://docs.google.com/spreadsheets/create)
- * 2. Name your spreadsheet: "That's My Bird - Early Flock Waitlist"
- * 3. In the top menu, click: Extensions > Apps Script
- * 4. Delete any code in the editor, and paste this ENTIRE file into Code.gs
- * 5. Click the "Save" icon (or Ctrl+S / Cmd+S)
- * 6. Click the blue "Deploy" button (top right) > "New deployment"
- * 7. Click the gear icon next to "Select type" > select "Web app"
- * 8. Configure the deployment settings:
+ * HOW TO ACTIVATE IN 60 SECONDS:
+ * 1. Open your created spreadsheet:
+ *    https://docs.google.com/spreadsheets/d/1Fv549R07SE81bQyMBG7Xjp_yT7pfA-_GDCRWhh_vFck/edit
+ * 2. In the top Google Sheets menu, click: Extensions > Apps Script
+ * 3. Delete any default code in Code.gs, and paste this ENTIRE file
+ * 4. Click the "Save" icon (or Ctrl+S)
+ * 5. Click the blue "Deploy" button (top right) > "New deployment"
+ * 6. Click the gear icon next to "Select type" > choose "Web app"
+ * 7. Set configuration:
  *    - Description: "That's My Bird Lead Intake"
  *    - Execute as: "Me"
- *    - Who has access: "Anyone" (CRITICAL: Allows website visitors to submit)
- * 9. Click "Deploy" > Review permissions > Allow access with your Google account
- * 10. COPY the "Web app URL" (it starts with: https://script.google.com/macros/s/...)
- * 11. Paste that URL into `app.js` at line 17:
+ *    - Who has access: "Anyone" (allows website visitors to submit)
+ * 8. Click "Deploy" > "Authorize access" (sign in with your Google account)
+ * 9. Copy the generated "Web app URL" (starts with: https://script.google.com/macros/s/...)
+ * 10. Paste that URL into `app.js` at line 99:
  *     const GOOGLE_SHEETS_WEBAPP_URL = 'YOUR_COPIED_URL_HERE';
  * ==============================================================================
  */
