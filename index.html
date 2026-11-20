@@ -206,6 +206,11 @@
             </div>
 
             <form id="hero-lead-form">
+              <!-- Hidden Honeypot Anti-Spam Trap (Bots fill this, humans don't) -->
+              <div class="hp-trap-wrap" aria-hidden="true">
+                <input type="text" name="_b_hp_check" tabindex="-1" autocomplete="off">
+              </div>
+
               <div class="lead-form-grid">
                 
                 <div class="form-group">
@@ -223,8 +228,21 @@
                   <input type="text" id="hero-pincode" name="pincode" class="form-input" placeholder="e.g. 600028" maxlength="6" required>
                 </div>
 
-                <div class="form-group form-submit-group">
-                  <label class="form-label form-submit-label" aria-hidden="true">&nbsp;</label>
+                <!-- Human Verification Security Check -->
+                <div class="form-group captcha-group">
+                  <div class="captcha-label-row">
+                    <label class="form-label" for="hero-captcha-input">Security Check</label>
+                    <button type="button" class="captcha-refresh-btn" title="Get new question" aria-label="Refresh Security Challenge">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                    </button>
+                  </div>
+                  <div class="captcha-box">
+                    <span class="captcha-badge hero-captcha-challenge">4 + 3 =</span>
+                    <input type="number" id="hero-captcha-input" name="captcha" class="form-input captcha-input" placeholder="Answer" required>
+                  </div>
+                </div>
+
+                <div class="form-group form-submit-group grid-full-width">
                   <button type="submit" class="btn btn-primary btn-lg full-btn hero-submit-btn">
                     JOIN THE FLOCK →
                   </button>
@@ -1073,7 +1091,12 @@
       </div>
 
       <form id="modal-lead-form">
-        <div style="display: flex; flex-direction: column; gap: 1.1rem;">
+        <!-- Hidden Honeypot Anti-Spam Trap (Bots fill this, humans don't) -->
+        <div class="hp-trap-wrap" aria-hidden="true">
+          <input type="text" name="_b_hp_check" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0.95rem;">
           
           <div class="form-group">
             <label class="form-label" for="modal-name">Your Full Name</label>
@@ -1090,7 +1113,21 @@
             <input type="text" id="modal-pincode" name="pincode" class="form-input" placeholder="e.g. 600028" maxlength="6" required>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-lg full-btn" style="margin-top: 0.5rem;">
+          <!-- Human Verification Security Check in Modal -->
+          <div class="form-group captcha-group">
+            <div class="captcha-label-row">
+              <label class="form-label" for="modal-captcha-input">Security Check</label>
+              <button type="button" class="captcha-refresh-btn" title="Get new question" aria-label="Refresh Security Challenge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+              </button>
+            </div>
+            <div class="captcha-box">
+              <span class="captcha-badge modal-captcha-challenge">5 + 2 =</span>
+              <input type="number" id="modal-captcha-input" name="captcha" class="form-input captcha-input" placeholder="Answer" required>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg full-btn" style="margin-top: 0.25rem;">
             LOCK IN MY FREE DRINK →
           </button>
 

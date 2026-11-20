@@ -90,7 +90,16 @@ function initWaitlistCounter() {
 }
 
 /* ==========================================================================
-   LEAD CAPTURE FORMS (Hero & Quick Modal)
+   GOOGLE SHEETS WEB APP ENDPOINT CONFIGURATION
+   ==========================================================================
+   To connect your Google Sheet:
+   1. Follow instructions in google-sheets-script.js
+   2. Replace the URL below with your deployed Web App URL
+   ========================================================================== */
+const GOOGLE_SHEETS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbz_YOUR_SCRIPT_ID/exec';
+
+/* ==========================================================================
+   LEAD CAPTURE FORMS (Hero & Quick Modal with CAPTCHA & Google Sheets)
    ========================================================================== */
 function initLeadForms() {
   const forms = [
@@ -98,20 +107,64 @@ function initLeadForms() {
     document.getElementById('modal-lead-form')
   ];
 
+  // Helper to generate dynamic anti-spam math challenge
+  function refreshCaptcha(form) {
+    const challengeEl = form.querySelector('.hero-captcha-challenge, .modal-captcha-challenge');
+    const inputEl = form.querySelector('.captcha-input');
+    
+    // Generate two random digits with sum between 5 and 18
+    const a = Math.floor(Math.random() * 8) + 2;
+    const b = Math.floor(Math.random() * 8) + 1;
+    const expected = a + b;
+    form.dataset.expectedCaptcha = String(expected);
+
+    if (challengeEl) {
+      challengeEl.textContent = `${a} + ${b} =`;
+    }
+    if (inputEl) {
+      inputEl.value = '';
+      inputEl.classList.remove('error');
+    }
+  }
+
   forms.forEach(form => {
     if (!form) return;
 
+    // Initialize CAPTCHA challenge
+    refreshCaptcha(form);
+
+    // Refresh button event listener
+    const refreshBtn = form.querySelector('.captcha-refresh-btn');
+    refreshBtn?.addEventListener('click', () => {
+      refreshCaptcha(form);
+      form.querySelector('.captcha-input')?.focus();
+    });
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      // 1. Honeypot Bot Trap Check: Silent drop if automated spam script filled hidden field
+      const honeypotVal = form.querySelector('input[name="_b_hp_check"]')?.value;
+      if (honeypotVal) {
+        console.warn('Spam bot trap triggered.');
+        showToast('Welcome to the flock!');
+        form.reset();
+        refreshCaptcha(form);
+        return;
+      }
       
       const nameInput = form.querySelector('input[name="name"]');
       const phoneInput = form.querySelector('input[name="phone"]');
       const pincodeInput = form.querySelector('input[name="pincode"]');
+      const captchaInput = form.querySelector('.captcha-input');
 
       const name = nameInput?.value.trim();
       const phone = phoneInput?.value.trim();
       const pincode = pincodeInput?.value.trim();
+      const userCaptcha = parseInt(captchaInput?.value.trim(), 10);
+      const expectedCaptcha = parseInt(form.dataset.expectedCaptcha, 10);
 
+      // 2. Standard field validation
       if (!name || !phone) {
         showToast('Please provide your full name and phone number');
         return;
@@ -124,16 +177,70 @@ function initLeadForms() {
         return;
       }
 
+      // 3. CAPTCHA Math Verification Check
+      if (isNaN(userCaptcha) || userCaptcha !== expectedCaptcha) {
+        captchaInput?.classList.add('error');
+        captchaInput?.focus();
+        showToast('Security check failed: Please solve the math check (e.g. 4 + 3 = 7)');
+        refreshCaptcha(form);
+        return;
+      }
+
+      captchaInput?.classList.remove('error');
+
       // Clean pincode
       const cleanPin = pincode ? pincode.replace(/\D/g, '') : '';
 
-      // Success State UI
+      // Button Loading UI
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = 'WELCOME TO THE FLOCK!';
+      submitBtn.innerHTML = 'LOCKING IN...';
       submitBtn.disabled = true;
 
-      // Increment counters
+      const sourceName = form.id === 'hero-lead-form' ? 'Hero Lead Card' : 'Modal VIP Pass';
+      const deviceType = window.innerWidth <= 768 ? 'Mobile Safari/Chrome' : 'Desktop';
+
+      // 4. Send Lead Data to Google Sheets Web App
+      if (GOOGLE_SHEETS_WEBAPP_URL && !GOOGLE_SHEETS_WEBAPP_URL.includes('YOUR_SCRIPT_ID')) {
+        const payload = new URLSearchParams();
+        payload.append('name', name);
+        payload.append('phone', cleanPhone);
+        payload.append('pincode', cleanPin);
+        payload.append('source', sourceName);
+        payload.append('captcha_status', 'Verified Human');
+        payload.append('device', deviceType);
+
+        fetch(GOOGLE_SHEETS_WEBAPP_URL, {
+          method: 'POST',
+          mode: 'no-cors', // Standard for Google Apps Script Web Apps
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: payload.toString()
+        }).catch(err => {
+          console.warn('Google Sheets network sync note:', err);
+        });
+      }
+
+      // 5. Always persist to localStorage backup so leads are NEVER lost
+      try {
+        const backupLeads = JSON.parse(localStorage.getItem('tmb_flock_leads') || '[]');
+        backupLeads.push({
+          timestamp: new Date().toISOString(),
+          name,
+          phone: cleanPhone,
+          pincode: cleanPin,
+          source: sourceName,
+          device: deviceType,
+          status: 'Verified Human'
+        });
+        localStorage.setItem('tmb_flock_leads', JSON.stringify(backupLeads));
+      } catch (err) {
+        // Fallback for private browsing
+      }
+
+      // Success State UI
+      submitBtn.innerHTML = 'WELCOME TO THE FLOCK! ✓';
+
+      // Increment live counters
       const counterElements = document.querySelectorAll('.live-waitlist-count');
       counterElements.forEach(el => {
         const val = parseInt(el.textContent.replace(/,/g, ''), 10) || 1428;
@@ -141,7 +248,7 @@ function initLeadForms() {
       });
 
       // Show Toast Notification
-      showToast(`Welcome to the flock, ${name}! Your free Panag Fizz voucher is reserved.`);
+      showToast(`Welcome to the flock, ${name}! Your free Panag Fizz voucher is locked in.`);
 
       // Update personalized referral link
       const safeCode = name.replace(/[^a-zA-Z]/g, '').slice(0, 5).toUpperCase() || 'BIRD';
@@ -163,6 +270,7 @@ function initLeadForms() {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
         form.reset();
+        refreshCaptcha(form);
 
         // Close modal if open
         const modal = document.getElementById('join-modal');

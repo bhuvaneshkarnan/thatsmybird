@@ -771,6 +771,89 @@ button, input, select, textarea {
   color: #A09E96;
 }
 
+/* Honeypot Trap for Automated Bots */
+.hp-trap-wrap {
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.grid-full-width {
+  grid-column: 1 / -1;
+}
+
+/* Human Verification Math CAPTCHA */
+.captcha-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.captcha-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.captcha-refresh-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #7A7770;
+  padding: 0 0.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.captcha-refresh-btn:hover {
+  color: var(--color-red);
+  transform: rotate(60deg);
+}
+
+.captcha-box {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: 100%;
+}
+
+.captcha-badge {
+  background-color: var(--bg-beige);
+  border: 1.5px solid var(--border-beige);
+  border-radius: 0.4rem;
+  padding: 0 0.65rem;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-red);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.captcha-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.captcha-input.error {
+  border-color: var(--color-red) !important;
+  background-color: #FFF5F5 !important;
+}
+
 .hero-submit-btn {
   font-size: 1.25rem !important;
   padding: 0.42rem 1rem !important;
@@ -3177,6 +3260,16 @@ button, input, select, textarea {
     appearance: none;
     box-sizing: border-box;
     width: 100%;
+  }
+
+  .captcha-badge {
+    height: 44px;
+    font-size: 1.2rem;
+    padding: 0 0.65rem;
+  }
+
+  .grid-full-width {
+    grid-column: 1;
   }
 
   .form-submit-label {
