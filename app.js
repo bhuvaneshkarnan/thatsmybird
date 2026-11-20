@@ -621,7 +621,8 @@ function displayVipPassModal({ name, phone, pincode, code, rank }) {
   if (cardCode) cardCode.textContent = `TMB-${code}`;
 
   if (shareBtn) {
-    const text = `Hey! I just locked in my Founding Flock VIP Pass (#TMB-${code}) for That's My Bird Chennai. Free Panag Fizz reserved! Lock in yours here: https://thatsmybird.in`;
+    const liveUrl = getLiveReferralBaseUrl();
+    const text = `Hey! I just locked in my Founding Flock VIP Pass (#TMB-${code}) for That's My Bird Chennai. Free Panag Fizz reserved! Lock in yours here: ${liveUrl}`;
     shareBtn.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
   }
 
