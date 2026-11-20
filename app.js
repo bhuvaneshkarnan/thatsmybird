@@ -352,7 +352,7 @@ function initDeliveryChecker() {
 
     if (!pin || pin.length !== 6) {
       resultContainer.className = 'delivery-result-msg pending';
-      resultContainer.innerHTML = 'Please enter a valid 6-digit Indian postal code (e.g. 600028)';
+      resultContainer.innerHTML = '<span class="delivery-result-headline">PLEASE ENTER A 6-DIGIT PINCODE</span><span class="delivery-result-detail">Enter your 6-digit Indian postal code (e.g. 600028) to check delivery coverage.</span>';
       return;
     }
 
@@ -360,14 +360,14 @@ function initDeliveryChecker() {
       const pinNum = parseInt(pin, 10);
       if (pinNum >= 600001 && pinNum <= 600130) {
         resultContainer.className = 'delivery-result-msg success';
-        resultContainer.innerHTML = `<strong>"We're coming to you!"</strong> Pincode <strong>${pin}</strong> is inside our Day-1 hot delivery kitchen zone in Chennai. You'll get your hot fried bird right from batch #01!`;
+        resultContainer.innerHTML = `<span class="delivery-result-headline">"WE'RE COMING TO YOU!"</span><span class="delivery-result-detail">Pincode <strong>${pin}</strong> is inside our Day-1 hot delivery kitchen zone in Chennai. You'll get your hot fried bird right from batch #01!</span>`;
       } else {
         resultContainer.className = 'delivery-result-msg success';
-        resultContainer.innerHTML = `<strong>"We're coming to you!"</strong> Pincode <strong>${pin}</strong> is inside our Greater Chennai launch perimeter. Join the flock to secure launch priority!`;
+        resultContainer.innerHTML = `<span class="delivery-result-headline">"WE'RE COMING TO YOU!"</span><span class="delivery-result-detail">Pincode <strong>${pin}</strong> is inside our Greater Chennai launch perimeter. Join the flock to secure launch priority!</span>`;
       }
     } else {
       resultContainer.className = 'delivery-result-msg pending';
-      resultContainer.innerHTML = `<strong>"Not yet, but we'll tell you the moment we do."</strong> Zone <strong>${pin}</strong> is currently on our expansion heat map. Drop your WhatsApp in the flock form above to vote for this area!`;
+      resultContainer.innerHTML = `<span class="delivery-result-headline">"NOT YET, BUT WE'LL TELL YOU THE MOMENT WE DO."</span><span class="delivery-result-detail">Zone <strong>${pin}</strong> is currently on our expansion heat map. Drop your WhatsApp in the flock form above to vote for this area!</span>`;
     }
   };
 

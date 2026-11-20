@@ -2376,8 +2376,9 @@ button, input, select, textarea {
   background-color: var(--bg-beige-light);
   border: 2.5px solid var(--color-red);
   border-radius: 1.25rem;
-  padding: clamp(1.35rem, 2.5vw, 2rem) 1.5rem;
+  padding: clamp(1.75rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2rem);
   text-align: center;
+  box-sizing: border-box;
 }
 
 .pincode-input-group {
@@ -2405,23 +2406,60 @@ button, input, select, textarea {
 }
 
 .delivery-result-msg {
-  min-height: 48px;
-  font-size: 1.15rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  display: block;
+  text-align: center;
+  max-width: 640px;
+  margin: 1.25rem auto 0 auto;
+  padding: 0.95rem 1.35rem;
+  border-radius: 0.75rem;
+  font-size: 0.98rem;
+  line-height: 1.55;
   color: #6E6B64;
+  background-color: var(--color-white);
+  border: 1.5px solid var(--border-beige);
+  box-sizing: border-box;
+  transition: all 0.25s ease;
 }
 
 .delivery-result-msg.success {
-  color: #1E7E34;
+  background-color: #F0FDF4;
+  border-color: #86EFAC;
+  color: #14532D;
 }
 
 .delivery-result-msg.pending {
-  color: #B26A00;
+  background-color: #FFFBEB;
+  border-color: #FDE68A;
+  color: #78350F;
+}
+
+.delivery-result-headline {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  margin-bottom: 0.35rem;
+}
+
+.delivery-result-msg.success .delivery-result-headline {
+  color: #15803D;
+}
+
+.delivery-result-msg.pending .delivery-result-headline {
+  color: #B45309;
+}
+
+.delivery-result-detail {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #4A4843;
+}
+
+.delivery-result-detail strong {
+  color: var(--color-charcoal);
+  font-weight: 700;
 }
 
 /* ==========================================================================
@@ -3658,7 +3696,7 @@ button, input, select, textarea {
   }
 
   .delivery-box {
-    padding: 1.15rem 0.85rem;
+    padding: 1.35rem 1rem 1.6rem 1rem;
     border-radius: 0.85rem;
     border-width: 2px;
   }
@@ -3697,10 +3735,23 @@ button, input, select, textarea {
   }
 
   .delivery-result-msg {
+    display: block;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    padding: 0.75rem 0.85rem;
+    margin-top: 0.75rem;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .delivery-result-headline {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .delivery-result-detail {
     font-size: 0.85rem;
-    min-height: 36px;
-    margin-top: 0.5rem;
-    line-height: 1.35;
+    line-height: 1.4;
   }
 
   .steps-progression-timeline {
