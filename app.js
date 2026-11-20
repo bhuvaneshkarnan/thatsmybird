@@ -218,6 +218,8 @@ function initLeadForms() {
         }).catch(err => {
           console.warn('Google Sheets network sync note:', err);
         });
+      } else {
+        console.info('Google Sheets sync pending: Web App URL has not been set yet. Lead safely saved to localStorage.');
       }
 
       // 5. Always persist to localStorage backup so leads are NEVER lost

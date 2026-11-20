@@ -65,7 +65,22 @@ function doPost(e) {
       sheet.setColumnWidth(7, 120);
     }
 
-    var params = e.parameter || {};
+    var params = {};
+    if (e && e.parameter && Object.keys(e.parameter).length > 0) {
+      params = e.parameter;
+    } else if (e && e.postData && e.postData.contents) {
+      try {
+        params = JSON.parse(e.postData.contents);
+      } catch (err) {
+        var pairs = e.postData.contents.split('&');
+        for (var i = 0; i < pairs.length; i++) {
+          var kv = pairs[i].split('=');
+          if (kv[0]) {
+            params[decodeURIComponent(kv[0])] = decodeURIComponent((kv[1] || '').replace(/\+/g, ' '));
+          }
+        }
+      }
+    }
     
     // Server-side Honeypot Check: Discard if hidden bot field is filled
     if (params._b_hp_check) {
