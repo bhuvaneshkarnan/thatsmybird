@@ -236,6 +236,10 @@ function initLeadForms() {
         payload.append('captcha_status', 'Verified Human');
         payload.append('device', deviceType);
         payload.append('pass_code', passCode);
+        const referredBy = sessionStorage.getItem('tmb_referred_by') || '';
+        if (referredBy) {
+          payload.append('referred_by', referredBy);
+        }
 
         fetch(GOOGLE_SHEETS_WEBAPP_URL, {
           method: 'POST',
@@ -412,15 +416,46 @@ function initDeliveryChecker() {
 }
 
 /* ==========================================================================
-   REFER & UNLOCK (Viral Loop with Robust Clipboard Fallback)
+   REFER & UNLOCK (Viral Loop with Robust Dynamic URL & Clipboard Fallback)
    ========================================================================== */
+function getLiveReferralBaseUrl() {
+  if (window.location.protocol === 'file:' || !window.location.host) {
+    return 'https://bhuvaneshkarnan.github.io/thatsmybird/';
+  }
+  let url = window.location.origin + window.location.pathname;
+  if (!url.endsWith('/') && !url.split('/').pop().includes('.')) {
+    url += '/';
+  }
+  return url;
+}
+
 function initReferral() {
   const copyBtn = document.getElementById('copy-ref-btn');
   const whatsappShareBtn = document.getElementById('whatsapp-share-btn');
   const refUrlEl = document.getElementById('referral-url-text');
 
+  // Initialize with live working URL
+  const base = getLiveReferralBaseUrl();
+  if (refUrlEl && refUrlEl.textContent.includes('thatsmybird.in/join')) {
+    refUrlEl.textContent = `${base}?ref=CHETTI-FLOCK`;
+  }
+
+  // Detect incoming referral code from URL parameter
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const refCode = urlParams.get('ref');
+    if (refCode) {
+      sessionStorage.setItem('tmb_referred_by', refCode);
+      setTimeout(() => {
+        showToast(`Invited by friend code #${refCode}! Join the flock to unlock free drinks.`);
+      }, 1000);
+    }
+  } catch (e) {
+    // URL parsing fallback
+  }
+
   copyBtn?.addEventListener('click', () => {
-    const textToCopy = refUrlEl?.textContent.trim() || 'https://thatsmybird.in/join?ref=CHETTI-FLOCK';
+    const textToCopy = refUrlEl?.textContent.trim() || `${getLiveReferralBaseUrl()}?ref=CHETTI-FLOCK`;
 
     // Clipboard API with robust textarea fallback
     if (navigator.clipboard && window.isSecureContext) {
@@ -435,7 +470,7 @@ function initReferral() {
   });
 
   whatsappShareBtn?.addEventListener('click', () => {
-    const link = refUrlEl?.textContent.trim() || 'https://thatsmybird.in/join?ref=CHETTI-FLOCK';
+    const link = refUrlEl?.textContent.trim() || `${getLiveReferralBaseUrl()}?ref=CHETTI-FLOCK`;
     const message = encodeURIComponent(`Check out That's My Bird! They're launching fresh, same-day Chettinad fried chicken in Chennai (never frozen!) + authentic Panag Fizz. Join the flock through my link and we both get free drinks:\n${link}`);
     window.open(`https://api.whatsapp.com/send?text=${message}`, '_blank');
   });
@@ -467,7 +502,8 @@ function fallbackCopyText(text, btn) {
 function updateReferralCode(newCode) {
   const refUrlEl = document.getElementById('referral-url-text');
   if (refUrlEl) {
-    refUrlEl.textContent = `https://thatsmybird.in/join?ref=${newCode}`;
+    const base = getLiveReferralBaseUrl();
+    refUrlEl.textContent = `${base}?ref=${newCode}`;
   }
 }
 
