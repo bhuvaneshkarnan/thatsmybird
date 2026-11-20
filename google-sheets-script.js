@@ -91,15 +91,40 @@ function doPost(e) {
 
     // Format IST Timestamp
     var istDate = Utilities.formatDate(new Date(), 'Asia/Kolkata', 'yyyy-MM-dd HH:mm:ss');
+    var rawPhone = params.phone ? String(params.phone).replace(/\D/g, '') : '';
+
+    // ONE PASS PER CUSTOMER CHECK: Search Column C (WhatsApp Number)
+    if (rawPhone && rawPhone.length >= 10) {
+      var data = sheet.getDataRange().getValues();
+      for (var r = 1; r < data.length; r++) {
+        var existingPhone = String(data[r][2] || '').replace(/\D/g, '');
+        if (existingPhone && (existingPhone === rawPhone || existingPhone.endsWith(rawPhone) || rawPhone.endsWith(existingPhone))) {
+          // Already registered! Return existing details without creating duplicate row
+          return ContentService
+            .createTextOutput(JSON.stringify({
+              result: 'already_registered',
+              row: r + 1,
+              code: data[r][7] || '',
+              status: data[r][8] || 'Available (1 Free Drink)',
+              message: 'WhatsApp number already registered. Only 1 pass permitted per customer.'
+            }))
+            .setMimeType(ContentService.MimeType.JSON);
+        }
+      }
+    }
+
+    var passCode = params.pass_code || ('TMB-' + (params.name || 'BIRD').replace(/[^a-zA-Z]/g, '').slice(0, 5).toUpperCase() + '-' + rawPhone.slice(-4));
 
     var newRow = [
       istDate,
       params.name || 'Anonymous',
-      params.phone ? "'" + params.phone : '', // Prepend apostrophe to preserve leading zeros in phone
+      rawPhone ? "'" + rawPhone : '', // Prepend apostrophe to preserve leading zeros in phone
       params.pincode ? "'" + params.pincode : '',
       params.source || 'Hero Lead Card',
       params.captcha_status || 'Verified Human',
-      params.device || 'Desktop'
+      params.device || 'Desktop',
+      passCode,
+      'Available (1 Free Drink)'
     ];
 
     sheet.appendRow(newRow);
@@ -109,6 +134,7 @@ function doPost(e) {
       .createTextOutput(JSON.stringify({
         result: 'success',
         row: sheet.getLastRow(),
+        code: passCode,
         timestamp: istDate
       }))
       .setMimeType(ContentService.MimeType.JSON);

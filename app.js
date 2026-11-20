@@ -191,6 +191,32 @@ function initLeadForms() {
       // Clean pincode
       const cleanPin = pincode ? pincode.replace(/\D/g, '') : '';
 
+      // Compute Unique VIP Pass Code
+      const safeCode = name.replace(/[^a-zA-Z]/g, '').slice(0, 5).toUpperCase() || 'BIRD';
+      const customCode = `${safeCode}-${cleanPhone.slice(-4)}`;
+      const passCode = `TMB-${customCode}`;
+
+      // 4. One Pass Per Customer Check: Verify if number already claimed on this device
+      try {
+        const existingLeads = JSON.parse(localStorage.getItem('tmb_flock_leads') || '[]');
+        const alreadyClaimed = existingLeads.find(l => l.phone === cleanPhone);
+        if (alreadyClaimed) {
+          showToast(`VIP Pass already claimed for +91 ${cleanPhone}! Showing your pass.`);
+          displayVipPassModal({
+            name: alreadyClaimed.name,
+            phone: alreadyClaimed.phone,
+            pincode: alreadyClaimed.pincode,
+            code: alreadyClaimed.code || customCode,
+            rank: alreadyClaimed.rank || 1525
+          });
+          form.reset();
+          refreshCaptcha(form);
+          return;
+        }
+      } catch (e) {
+        // Continue if localStorage is restricted
+      }
+
       // Button Loading UI
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
@@ -200,7 +226,7 @@ function initLeadForms() {
       const sourceName = form.id === 'hero-lead-form' ? 'Hero Lead Card' : 'Modal VIP Pass';
       const deviceType = window.innerWidth <= 768 ? 'Mobile Safari/Chrome' : 'Desktop';
 
-      // 4. Send Lead Data to Google Sheets Web App
+      // 5. Send Lead Data to Google Sheets Web App (with duplicate prevention)
       if (GOOGLE_SHEETS_WEBAPP_URL && !GOOGLE_SHEETS_WEBAPP_URL.includes('YOUR_SCRIPT_ID')) {
         const payload = new URLSearchParams();
         payload.append('name', name);
@@ -209,6 +235,7 @@ function initLeadForms() {
         payload.append('source', sourceName);
         payload.append('captcha_status', 'Verified Human');
         payload.append('device', deviceType);
+        payload.append('pass_code', passCode);
 
         fetch(GOOGLE_SHEETS_WEBAPP_URL, {
           method: 'POST',
@@ -222,7 +249,16 @@ function initLeadForms() {
         console.info('Google Sheets sync pending: Web App URL has not been set yet. Lead safely saved to localStorage.');
       }
 
-      // 5. Always persist to localStorage backup so leads are NEVER lost
+      // 6. Increment live counters
+      let nextRank = 1525;
+      const counterElements = document.querySelectorAll('.live-waitlist-count');
+      counterElements.forEach(el => {
+        const val = parseInt(el.textContent.replace(/,/g, ''), 10) || 1428;
+        nextRank = val + 1;
+        el.textContent = nextRank.toLocaleString();
+      });
+
+      // 7. Always persist to localStorage backup so leads are NEVER lost
       try {
         const backupLeads = JSON.parse(localStorage.getItem('tmb_flock_leads') || '[]');
         backupLeads.push({
@@ -230,8 +266,11 @@ function initLeadForms() {
           name,
           phone: cleanPhone,
           pincode: cleanPin,
+          code: customCode,
+          passCode: passCode,
           source: sourceName,
           device: deviceType,
+          rank: nextRank,
           status: 'Verified Human'
         });
         localStorage.setItem('tmb_flock_leads', JSON.stringify(backupLeads));
@@ -242,18 +281,7 @@ function initLeadForms() {
       // Success State UI
       submitBtn.innerHTML = 'WELCOME TO THE FLOCK! ✓';
 
-      // Increment live counters
-      let nextRank = 1525;
-      const counterElements = document.querySelectorAll('.live-waitlist-count');
-      counterElements.forEach(el => {
-        const val = parseInt(el.textContent.replace(/,/g, ''), 10) || 1428;
-        nextRank = val + 1;
-        el.textContent = nextRank.toLocaleString();
-      });
-
       // Update personalized referral link
-      const safeCode = name.replace(/[^a-zA-Z]/g, '').slice(0, 5).toUpperCase() || 'BIRD';
-      const customCode = `${safeCode}-${cleanPhone.slice(-4)}`;
       updateReferralCode(customCode);
 
       // Auto-validate pincode in delivery checker if provided
