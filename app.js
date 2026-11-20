@@ -243,14 +243,13 @@ function initLeadForms() {
       submitBtn.innerHTML = 'WELCOME TO THE FLOCK! ✓';
 
       // Increment live counters
+      let nextRank = 1525;
       const counterElements = document.querySelectorAll('.live-waitlist-count');
       counterElements.forEach(el => {
         const val = parseInt(el.textContent.replace(/,/g, ''), 10) || 1428;
-        el.textContent = (val + 1).toLocaleString();
+        nextRank = val + 1;
+        el.textContent = nextRank.toLocaleString();
       });
-
-      // Show Toast Notification
-      showToast(`Welcome to the flock, ${name}! Your free Panag Fizz voucher is locked in.`);
 
       // Update personalized referral link
       const safeCode = name.replace(/[^a-zA-Z]/g, '').slice(0, 5).toUpperCase() || 'BIRD';
@@ -267,20 +266,27 @@ function initLeadForms() {
         }
       }
 
+      // Show Toast Notification
+      showToast(`Welcome to the flock, ${name}! Your VIP Pass is ready.`);
+
+      // Open Instant Digital VIP Pass Modal
+      setTimeout(() => {
+        displayVipPassModal({
+          name,
+          phone: cleanPhone,
+          pincode: cleanPin,
+          code: customCode,
+          rank: nextRank
+        });
+      }, 500);
+
       // Reset form after delay
       setTimeout(() => {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
         form.reset();
         refreshCaptcha(form);
-
-        // Close modal if open
-        const modal = document.getElementById('join-modal');
-        if (modal?.classList.contains('open')) {
-          modal.classList.remove('open');
-          document.body.style.overflow = '';
-        }
-      }, 3500);
+      }, 2500);
     });
   });
 }
@@ -490,11 +496,79 @@ function initModal() {
     }
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal?.classList.contains('open')) {
-      closeModal();
+  // VIP Pass Modal Handlers
+  const vipModal = document.getElementById('vip-pass-modal');
+  const vipCloseBtn = document.querySelector('.vip-pass-close-btn');
+  const vipDismissBtn = document.getElementById('vip-dismiss-btn');
+  const vipCopyBtn = document.getElementById('vip-copy-btn');
+
+  const closeVipModal = () => {
+    vipModal?.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  vipCloseBtn?.addEventListener('click', closeVipModal);
+  vipDismissBtn?.addEventListener('click', closeVipModal);
+
+  vipModal?.addEventListener('click', (e) => {
+    if (e.target === vipModal) {
+      closeVipModal();
     }
   });
+
+  vipCopyBtn?.addEventListener('click', () => {
+    const code = document.getElementById('vip-card-code')?.textContent || '';
+    if (code && navigator.clipboard) {
+      navigator.clipboard.writeText(code).then(() => {
+        vipCopyBtn.textContent = 'COPIED! ✓';
+        setTimeout(() => {
+          vipCopyBtn.textContent = 'COPY';
+        }, 2000);
+      });
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (modal?.classList.contains('open')) closeModal();
+      if (vipModal?.classList.contains('open')) closeVipModal();
+    }
+  });
+}
+
+/* ==========================================================================
+   DISPLAY VIP PASS MODAL (Digital Founding Flock Pass)
+   ========================================================================== */
+function displayVipPassModal({ name, phone, pincode, code, rank }) {
+  const modal = document.getElementById('vip-pass-modal');
+  if (!modal) return;
+
+  const cardName = document.getElementById('vip-card-name');
+  const cardPhone = document.getElementById('vip-card-phone');
+  const cardPincode = document.getElementById('vip-card-pincode');
+  const cardRank = document.getElementById('vip-card-rank');
+  const cardCode = document.getElementById('vip-card-code');
+  const shareBtn = document.getElementById('vip-share-whatsapp-btn');
+
+  if (cardName) cardName.textContent = name;
+  if (cardPhone) cardPhone.textContent = phone ? `+91 ${phone}` : '+91 Verified';
+  if (cardPincode) cardPincode.textContent = pincode || 'Chennai Central';
+  if (cardRank) cardRank.textContent = `#${(rank || 1525).toLocaleString()} in Flock`;
+  if (cardCode) cardCode.textContent = `TMB-${code}`;
+
+  if (shareBtn) {
+    const text = `Hey! I just locked in my Founding Flock VIP Pass (#TMB-${code}) for That's My Bird Chennai. Free Panag Fizz reserved! Lock in yours here: https://thatsmybird.in`;
+    shareBtn.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+  }
+
+  // Close join modal if open
+  const joinModal = document.getElementById('join-modal');
+  if (joinModal?.classList.contains('open')) {
+    joinModal.classList.remove('open');
+  }
+
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 
 /* ==========================================================================

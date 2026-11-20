@@ -2913,6 +2913,274 @@ button, input, select, textarea {
   line-height: 1;
 }
 
+/* ==========================================================================
+   INSTANT DIGITAL VIP PASS TICKET MODAL
+   ========================================================================== */
+.vip-pass-modal-box {
+  max-width: 460px;
+  max-height: 92vh;
+  overflow-y: auto;
+  padding: 1.25rem;
+  gap: 0.95rem;
+  border: 2px solid var(--color-red);
+}
+
+.vip-ticket {
+  background: var(--color-white);
+  border: 2px solid var(--color-charcoal);
+  border-radius: 0.85rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.ticket-top {
+  background: #FFF9F9;
+  padding: 1rem 1.15rem 0.75rem 1.15rem;
+  text-align: center;
+}
+
+.ticket-kicker-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.ticket-badge {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  background: var(--color-red);
+  color: var(--color-white);
+  padding: 0.18rem 0.55rem;
+  border-radius: 0.3rem;
+  line-height: 1.2;
+}
+
+.ticket-status-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #15803D;
+  letter-spacing: 0.03em;
+}
+
+.ticket-brand-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-red);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  margin: 0.2rem 0 0.15rem 0;
+}
+
+.ticket-subtitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #7A7770;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ticket-perforation {
+  position: relative;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+}
+
+.perf-cutout {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--bg-beige);
+  position: absolute;
+  border: 2px solid var(--color-charcoal);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.perf-cutout.left {
+  left: -11px;
+}
+
+.perf-cutout.right {
+  right: -11px;
+}
+
+.perf-dashed {
+  width: calc(100% - 24px);
+  border-top: 2px dashed #D6D0C4;
+}
+
+.ticket-body {
+  padding: 0.85rem 1.15rem 1.15rem 1.15rem;
+  background: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ticket-perk-banner {
+  background: #FFFBEB;
+  border: 1.5px solid #FDE68A;
+  border-radius: 0.55rem;
+  padding: 0.6rem 0.75rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.ticket-perk-badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #B45309;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ticket-perk-name {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: var(--color-charcoal);
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+}
+
+.ticket-perk-sub {
+  font-size: 0.78rem;
+  color: #78350F;
+  line-height: 1.3;
+}
+
+.ticket-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem 0.75rem;
+  background: var(--bg-beige-light);
+  border: 1.5px solid var(--border-beige);
+  border-radius: 0.55rem;
+  padding: 0.65rem 0.75rem;
+}
+
+.ticket-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.ticket-meta-label {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #7A7770;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ticket-meta-val {
+  font-size: 0.88rem;
+  color: var(--color-charcoal);
+  word-break: break-word;
+}
+
+.ticket-code-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.4rem;
+  padding-top: 0.15rem;
+}
+
+.ticket-code-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #7A7770;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ticket-code-display {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #F4F1EA;
+  border: 1.5px solid #D6D0C4;
+  border-radius: 0.45rem;
+  padding: 0.3rem 0.6rem;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.ticket-code-text {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  color: var(--color-red);
+  font-weight: 700;
+}
+
+.ticket-copy-btn {
+  padding: 0.25rem 0.6rem !important;
+  height: 28px !important;
+  font-size: 0.82rem !important;
+  border-radius: 0.35rem !important;
+}
+
+.ticket-barcode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 24px;
+  margin: 0.2rem 0;
+  width: 100%;
+}
+
+.ticket-barcode span {
+  background: var(--color-charcoal);
+  height: 100%;
+  display: inline-block;
+}
+
+.ticket-fineprint {
+  font-size: 0.75rem;
+  color: #7A7770;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.vip-actions-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  width: 100%;
+}
+
+.btn-outline-charcoal {
+  background-color: transparent;
+  color: var(--color-charcoal);
+  border: 1.5px solid var(--color-charcoal);
+  border-radius: 0.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.btn-outline-charcoal:hover {
+  background-color: var(--color-charcoal);
+  color: var(--color-white);
+}
+
 /* Toast Message */
 .toast-notice {
   position: fixed;

@@ -1141,6 +1141,112 @@
     </div>
   </div>
 
+  <!-- ==========================================================================
+       MODAL: INSTANT DIGITAL VIP PASS (Founding Flock Pass)
+       ========================================================================== -->
+  <div class="modal-overlay" id="vip-pass-modal" role="dialog" aria-modal="true" aria-labelledby="vip-pass-title">
+    <div class="modal-box vip-pass-modal-box">
+      <button class="modal-close-btn vip-pass-close-btn" aria-label="Close VIP pass">&times;</button>
+      
+      <div class="vip-ticket" id="vip-ticket-card">
+        <!-- Ticket Top Stub -->
+        <div class="ticket-top">
+          <div class="ticket-kicker-row">
+            <span class="ticket-badge">VIP LAUNCH PASS</span>
+            <span class="ticket-status-pill">● ACTIVE &amp; RESERVED</span>
+          </div>
+          <h3 id="vip-pass-title" class="ticket-brand-title">THAT'S MY BIRD</h3>
+          <p class="ticket-subtitle">FOUNDING FLOCK MEMBER · CHENNAI</p>
+        </div>
+
+        <!-- Ticket Perforation -->
+        <div class="ticket-perforation" aria-hidden="true">
+          <span class="perf-cutout left"></span>
+          <span class="perf-dashed"></span>
+          <span class="perf-cutout right"></span>
+        </div>
+
+        <!-- Ticket Body -->
+        <div class="ticket-body">
+          <div class="ticket-perk-banner">
+            <span class="ticket-perk-badge">REWARD UNLOCKED</span>
+            <span class="ticket-perk-name">1 FREE PANAG FIZZ</span>
+            <span class="ticket-perk-sub">Automatically applied to your Day-1 hot order</span>
+          </div>
+
+          <!-- Passholder Details Grid -->
+          <div class="ticket-details-grid">
+            <div class="ticket-meta-item">
+              <span class="ticket-meta-label">PASSHOLDER</span>
+              <strong class="ticket-meta-val" id="vip-card-name">Bhuvanesh Karnan</strong>
+            </div>
+            <div class="ticket-meta-item">
+              <span class="ticket-meta-label">WHATSAPP</span>
+              <strong class="ticket-meta-val" id="vip-card-phone">+91 98765 43210</strong>
+            </div>
+            <div class="ticket-meta-item">
+              <span class="ticket-meta-label">DELIVERY ZONE</span>
+              <strong class="ticket-meta-val" id="vip-card-pincode">600028</strong>
+            </div>
+            <div class="ticket-meta-item">
+              <span class="ticket-meta-label">QUEUE RANK</span>
+              <strong class="ticket-meta-val text-red" id="vip-card-rank">#1,525 in Flock</strong>
+            </div>
+          </div>
+
+          <!-- Voucher Code Barcode Section -->
+          <div class="ticket-code-section">
+            <span class="ticket-code-label">YOUR UNIQUE PASS CODE</span>
+            <div class="ticket-code-display">
+              <span class="ticket-code-text" id="vip-card-code">TMB-BHUVA-1570</span>
+              <button type="button" class="btn btn-sm btn-outline-charcoal ticket-copy-btn" id="vip-copy-btn" title="Copy code">
+                COPY
+              </button>
+            </div>
+
+            <!-- Barcode Simulation -->
+            <div class="ticket-barcode" aria-hidden="true">
+              <span style="width: 2px;"></span>
+              <span style="width: 4px;"></span>
+              <span style="width: 1px;"></span>
+              <span style="width: 3px;"></span>
+              <span style="width: 2px;"></span>
+              <span style="width: 5px;"></span>
+              <span style="width: 2px;"></span>
+              <span style="width: 1px;"></span>
+              <span style="width: 3px;"></span>
+              <span style="width: 2px;"></span>
+              <span style="width: 4px;"></span>
+              <span style="width: 1px;"></span>
+              <span style="width: 3px;"></span>
+              <span style="width: 2px;"></span>
+              <span style="width: 5px;"></span>
+              <span style="width: 1px;"></span>
+              <span style="width: 4px;"></span>
+              <span style="width: 2px;"></span>
+              <span style="width: 3px;"></span>
+              <span style="width: 2px;"></span>
+              <span style="width: 4px;"></span>
+            </div>
+
+            <p class="ticket-fineprint">Take a screenshot of this pass to keep handy for your Day-1 order.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="vip-actions-row">
+        <a href="#" target="_blank" rel="noopener" class="btn btn-primary btn-md full-btn" id="vip-share-whatsapp-btn">
+          SHARE PASS ON WHATSAPP →
+        </a>
+        <button type="button" class="btn btn-outline-charcoal btn-md full-btn" id="vip-dismiss-btn">
+          GOT IT / SAVED
+        </button>
+      </div>
+
+    </div>
+  </div>
+
   <!-- Global Toast Notification Container -->
   <div class="toast-notice" id="toast-notice" aria-live="polite"></div>
 
